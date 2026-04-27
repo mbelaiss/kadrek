@@ -1,0 +1,7 @@
+<svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="340" height="340" rx="76" fill="#111827"/>
+  <path d="M84 85H256V255H84V85Z" fill="#F97316"/>
+  <path d="M118 118H151V162L199 118H243L181 172L247 222H202L151 181V222H118V118Z" fill="white"/>
+  <path d="M84 255L256 85V255H84Z" fill="#0F172A" fill-opacity=".24"/>
+  <text x="170" y="286" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="white">Kadrek</text>
+</svg>
