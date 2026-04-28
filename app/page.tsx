@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 
 export const metadata: Metadata = {
@@ -44,15 +44,14 @@ export default function Home() {
       {/* ══ HERO SLIDER ══ */}
       <HeroSlider />
 
-      {/* ══ TRUST BAR ══ */}
-      <div className="border-y border-slate-100 bg-white">
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-6 px-6 py-5 lg:px-10">
-          <p className="text-[12px] font-bold uppercase tracking-widest text-slate-400">Résultats obtenus par nos clients</p>
-          <div className="flex flex-wrap items-center gap-8">
+      {/* ══ STATS BAR ══ */}
+      <div className="border-b border-slate-100 bg-white">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="grid grid-cols-2 divide-x divide-slate-100 lg:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-xl font-black text-blue-600">{s.value}</div>
-                <div className="text-[11px] text-slate-400">{s.label}</div>
+              <div key={s.label} className="px-8 py-7 first:pl-0">
+                <div className="text-[32px] font-black leading-none text-blue-600 mb-1">{s.value}</div>
+                <div className="text-[12px] text-slate-400 leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
@@ -60,80 +59,62 @@ export default function Home() {
       </div>
 
       {/* ══ SERVICES ══ */}
-      <section className="py-24 bg-white">
+      <section className="py-28 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="mb-14 grid lg:grid-cols-2 items-end gap-6">
+          <div className="mb-16 grid lg:grid-cols-[1fr_auto] items-end gap-6 border-b border-slate-100 pb-10">
             <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-blue-600">
-                Solutions
-              </div>
-              <h2 className="text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-5xl">
-                Tout ce dont votre entreprise<br />a besoin pour{" "}
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                  accélérer
-                </span>
+              <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Solutions</div>
+              <h2 className="text-[42px] font-black leading-tight tracking-tight text-slate-900 lg:text-[54px]">
+                Six domaines.<br />Un seul objectif.
               </h2>
             </div>
-            <p className="max-w-md text-lg leading-relaxed text-slate-500 lg:ml-auto">
-              Six domaines d'expertise, un seul objectif : rendre votre organisation plus rapide, plus intelligente et plus rentable.
-            </p>
+            <Link href="/services"
+              className="hidden lg:inline-flex items-center gap-2 text-[13px] font-semibold text-slate-400 hover:text-slate-700 transition-colors mb-2">
+              Voir toutes les solutions <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          <div className="grid gap-px bg-slate-100 border border-slate-100 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
+          <div className="divide-y divide-slate-100">
             {services.map((s) => (
               <Link key={s.title} href={s.href}
-                className="group bg-white p-7 hover:bg-slate-50 transition-colors duration-200 flex flex-col">
-                <div className="mb-5 text-[11px] font-black uppercase tracking-widest"
-                  style={{ color: s.color }}>
+                className="group flex items-center gap-8 py-6 transition-colors hover:bg-slate-50 -mx-4 px-4">
+                <span className="text-[11px] font-black tabular-nums text-slate-200 w-8 flex-shrink-0" style={{ color: s.num <= "03" ? s.color + "66" : undefined }}>
                   {s.num}
-                </div>
-                <h3 className="mb-2.5 text-[16px] font-black text-slate-900">{s.title}</h3>
-                <p className="mb-5 flex-1 text-[14px] leading-relaxed text-slate-500">{s.desc}</p>
-                <div className="flex items-center gap-1.5 text-[13px] font-semibold text-slate-400 group-hover:text-slate-700 transition-colors">
-                  En savoir plus <ArrowRight className="h-3.5 w-3.5" />
-                </div>
+                </span>
+                <h3 className="text-[18px] font-bold text-slate-800 group-hover:text-slate-900 w-52 flex-shrink-0">
+                  {s.title}
+                </h3>
+                <p className="hidden lg:block flex-1 text-[14px] leading-relaxed text-slate-400 group-hover:text-slate-600 transition-colors">
+                  {s.desc}
+                </p>
+                <ArrowRight className="h-4 w-4 text-slate-200 group-hover:text-slate-500 transition-colors flex-shrink-0" />
               </Link>
             ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link href="/services"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-slate-200 bg-white px-8 py-3.5 text-sm font-black text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
-              Voir toutes nos solutions <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* ══ WHY KADREK / METHOD ══ */}
-      <section className="bg-slate-50 py-24">
+      {/* ══ METHOD ══ */}
+      <section className="bg-slate-950 py-28 text-white">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="mb-14 text-center">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-slate-500">
-              Méthode Kadrek
+          <div className="mb-16 grid lg:grid-cols-[1fr_1fr] gap-10 items-end border-b border-white/10 pb-12">
+            <div>
+              <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-white/30">Méthode Kadrek</div>
+              <h2 className="text-[42px] font-black tracking-tight lg:text-[54px]">
+                Simple. Rapide. Mesurable.
+              </h2>
             </div>
-            <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-5xl">
-              Simple, rapide,{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">mesurable</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-500">
-              Pas de projet fleuve. On livre une première valeur en 2 semaines puis on optimise.
+            <p className="text-[17px] leading-relaxed text-white/40 lg:self-end">
+              Pas de projet fleuve. On livre une première valeur en 2 semaines puis on itère sur ce qui fonctionne.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {process.map((step, i) => (
-              <div key={step.num} className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                {i < process.length - 1 && (
-                  <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 lg:block">
-                    <ChevronRight className="h-5 w-5 text-slate-300" />
-                  </div>
-                )}
-                <div className="mb-4 text-3xl font-black bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                  {step.num}
-                </div>
-                <h3 className="mb-2 text-base font-black text-slate-800">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-500">{step.desc}</p>
+          <div className="grid lg:grid-cols-4 gap-0 divide-y divide-white/5 lg:divide-y-0 lg:divide-x">
+            {process.map((step) => (
+              <div key={step.num} className="py-8 lg:py-0 lg:px-10 first:pl-0 last:pr-0">
+                <div className="mb-4 text-[42px] font-black leading-none text-white/10">{step.num}</div>
+                <h3 className="mb-3 text-[16px] font-bold text-white">{step.title}</h3>
+                <p className="text-[13px] leading-relaxed text-white/40">{step.desc}</p>
               </div>
             ))}
           </div>
