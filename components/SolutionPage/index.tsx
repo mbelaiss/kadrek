@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
 import SquareButton from "@/components/SquareButton";
 import BenefitsSlider from "@/components/BenefitsSlider";
-import SolutionHeroCard from "@/components/SolutionHeroCard";
+import SolutionHeroSlider from "@/components/SolutionHeroSlider";
 
 export interface SolutionPageProps {
   eyebrow:    string;
@@ -44,54 +44,17 @@ export default function SolutionPage(p: SolutionPageProps) {
   return (
     <div className="bg-white text-slate-900">
 
-      {/* ══ HERO ══ */}
-      <section className="relative overflow-hidden bg-white pb-24 pt-36 border-b border-slate-100">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: "linear-gradient(#0f172a 1px,transparent 1px),linear-gradient(90deg,#0f172a 1px,transparent 1px)", backgroundSize: "72px 72px" }} />
-        <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full opacity-10 blur-3xl"
-          style={{ background: `radial-gradient(circle, ${p.accentFrom}, transparent 70%)` }} />
-
-        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-          <nav className="mb-8 flex items-center gap-2 text-[13px] text-slate-400">
-            <Link href="/" className="hover:text-slate-600 transition-colors">Accueil</Link>
-            <span className="text-slate-200">/</span>
-            <Link href="/services" className="hover:text-slate-600 transition-colors">Solutions</Link>
-            <span className="text-slate-200">/</span>
-            <span className="text-slate-600 font-medium">{p.eyebrow}</span>
-          </nav>
-
-          <div className="grid items-center gap-16 lg:grid-cols-[1fr_380px]">
-            <div>
-              <div className="mb-5 inline-block px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white"
-                style={{ background: p.accentFrom }}>
-                {p.eyebrow}
-              </div>
-              <h1 className="mb-6 text-5xl font-black leading-[1.06] tracking-tight text-slate-900 lg:text-[58px]">
-                {p.title}
-              </h1>
-              <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">{p.subtitle}</p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <SquareButton href="/contact" accent={p.accentFrom}>
-                  Obtenir un audit gratuit
-                </SquareButton>
-                <SquareButton href="#use-cases" accent="#64748b">
-                  Voir les cas d&apos;usage
-                </SquareButton>
-              </div>
-            </div>
-
-            {/* Hero slider card */}
-            <div className="hidden lg:block">
-              <SolutionHeroCard
-                accent={p.accentFrom}
-                features={p.features}
-                gains={p.gains}
-                benefits={p.benefits}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ══ HERO SLIDER ══ */}
+      <SolutionHeroSlider
+        eyebrow={p.eyebrow}
+        title={p.title}
+        subtitle={p.subtitle}
+        accent={p.accentFrom}
+        features={p.features}
+        gains={p.gains}
+        benefits={p.benefits}
+        problem={p.problem}
+      />
 
       {/* ══ PROBLEM ══ */}
       <section className="bg-slate-50 py-24">
