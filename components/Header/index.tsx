@@ -75,7 +75,7 @@ export default function Header() {
 
           {/* ── Logo ── */}
           <Link href="/" className="group flex items-center gap-3" onClick={() => setMobile(false)}>
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-base font-black text-white shadow-[0_4px_14px_rgba(37,99,235,.35)] transition-all group-hover:shadow-[0_4px_20px_rgba(37,99,235,.55)]">
+            <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-blue-600 to-cyan-500 text-base font-black text-white shadow-[0_4px_14px_rgba(37,99,235,.35)] transition-all group-hover:shadow-[0_4px_20px_rgba(37,99,235,.55)]">
               K
             </span>
             <span className="text-[18px] font-black tracking-tight text-slate-900">
@@ -131,9 +131,13 @@ export default function Header() {
                           <span className="text-[12px] text-slate-500">{megaMenu[name as keyof typeof megaMenu].featured.desc}</span>
                         </div>
                         <Link href={megaMenu[name as keyof typeof megaMenu].featured.href} onClick={() => setOpen(null)}
-                          className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2 text-[12px] font-black text-white transition hover:bg-blue-700">
-                          {megaMenu[name as keyof typeof megaMenu].featured.cta}
-                          <ArrowRight className="h-3.5 w-3.5" />
+                          className="inline-flex items-stretch overflow-hidden transition hover:opacity-90">
+                          <span className="flex items-center bg-blue-600 px-4 py-2 text-[12px] font-black text-white">
+                            {megaMenu[name as keyof typeof megaMenu].featured.cta}
+                          </span>
+                          <span className="flex w-8 items-center justify-center bg-blue-700">
+                            <ArrowRight className="h-3 w-3 text-white" />
+                          </span>
                         </Link>
                       </div>
                     </div>
@@ -157,9 +161,13 @@ export default function Header() {
               Se connecter
             </Link>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-[13px] font-black text-white shadow-[0_4px_14px_rgba(37,99,235,.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,.4)]">
-              Démarrer gratuitement
-              <ArrowRight className="h-3.5 w-3.5" />
+              className="group inline-flex items-stretch overflow-hidden transition-all hover:-translate-y-px hover:shadow-md">
+              <span className="flex items-center bg-blue-600 px-5 py-2.5 text-[13px] font-black text-white">
+                Démarrer gratuitement
+              </span>
+              <span className="flex w-9 items-center justify-center bg-blue-700">
+                <ArrowRight className="h-3.5 w-3.5 text-white transition-transform group-hover:translate-x-0.5" />
+              </span>
             </Link>
           </div>
 
@@ -201,8 +209,13 @@ export default function Header() {
           </div>
           <div className="border-t border-slate-100 p-5">
             <Link href="/contact" onClick={() => setMobile(false)}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 py-4 text-sm font-black text-white">
-              Démarrer gratuitement <ArrowRight className="h-4 w-4" />
+              className="flex w-full items-stretch overflow-hidden">
+              <span className="flex flex-1 items-center justify-center bg-blue-600 py-4 text-sm font-black text-white">
+                Démarrer gratuitement
+              </span>
+              <span className="flex w-12 items-center justify-center bg-blue-700">
+                <ArrowRight className="h-4 w-4 text-white" />
+              </span>
             </Link>
           </div>
         </div>

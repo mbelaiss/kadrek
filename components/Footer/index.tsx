@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="mb-6 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 text-base font-black text-white shadow-[0_4px_14px_rgba(37,99,235,.3)]">
+              <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-blue-600 to-cyan-500 text-base font-black text-white shadow-[0_4px_14px_rgba(37,99,235,.3)]">
                 K
               </span>
               <span>
@@ -41,8 +41,13 @@ export default function Footer() {
               Conseil digital pour aider les entreprises à structurer leur croissance, automatiser leurs processus et utiliser l'IA avec impact réel.
             </p>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-5 py-2.5 text-[13px] font-black text-blue-600 transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600">
-              Démarrer un diagnostic <ArrowRight className="h-3.5 w-3.5" />
+              className="group inline-flex items-stretch overflow-hidden transition-all hover:-translate-y-px hover:shadow-sm">
+              <span className="flex items-center border border-blue-200 bg-blue-50 px-5 py-2.5 text-[13px] font-black text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">
+                Démarrer un diagnostic
+              </span>
+              <span className="flex w-9 items-center justify-center border border-l-0 border-blue-200 bg-white transition-colors group-hover:bg-blue-700 group-hover:border-blue-700">
+                <ArrowRight className="h-3.5 w-3.5 text-blue-400 transition-colors group-hover:text-white" />
+              </span>
             </Link>
           </div>
 

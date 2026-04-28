@@ -165,7 +165,7 @@ export default function HeroSlider() {
 
           {/* Content */}
           <div key={current} className="animate-fadeInUp">
-            <div className={`mb-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${slide.accent} px-4 py-1.5`}>
+            <div className={`mb-5 inline-flex items-center gap-2 bg-gradient-to-r ${slide.accent} px-4 py-1.5`}>
               <span className="text-[11px] font-black uppercase tracking-widest text-white">{slide.eyebrow}</span>
             </div>
 
@@ -178,13 +178,19 @@ export default function HeroSlider() {
             </p>
 
             <div className="mb-10 flex flex-col gap-3 sm:flex-row">
+              {/* CTA 1 — split square button */}
               <Link href={slide.cta1.href}
-                className={`inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r ${slide.accent} px-7 py-3.5 text-[14px] font-black text-white shadow-[0_4px_20px_rgba(37,99,235,.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(37,99,235,.4)]`}>
-                {slide.cta1.label}
-                <ArrowRight className="h-4 w-4" />
+                className={`group inline-flex items-stretch overflow-hidden border-0 transition-all hover:-translate-y-px hover:shadow-md`}>
+                <span className="flex items-center bg-white px-6 py-3.5 text-[14px] font-black text-slate-800">
+                  {slide.cta1.label}
+                </span>
+                <span className={`flex w-12 items-center justify-center bg-gradient-to-br ${slide.accent}`}>
+                  <ArrowRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-0.5" />
+                </span>
               </Link>
+              {/* CTA 2 — ghost square */}
               <Link href={slide.cta2.href}
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-200 bg-white px-7 py-3.5 text-[14px] font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
+                className="inline-flex items-center justify-center gap-2 border border-slate-300 bg-white/70 px-7 py-3.5 text-[14px] font-semibold text-slate-700 backdrop-blur-sm transition-all hover:bg-white hover:border-slate-400">
                 {slide.cta2.label}
               </Link>
             </div>
@@ -221,20 +227,20 @@ export default function HeroSlider() {
           {/* Arrows */}
           <div className="flex items-center gap-2">
             <button onClick={prev}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
+              className="flex h-10 w-10 items-center justify-center border border-slate-200 bg-white text-slate-600 shadow-sm transition-all hover:border-slate-400 hover:bg-slate-50">
               <ChevronLeft className="h-4 w-4" />
             </button>
             <button onClick={next}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md">
+              className="flex h-10 w-10 items-center justify-center border border-slate-200 bg-white text-slate-600 shadow-sm transition-all hover:border-slate-400 hover:bg-slate-50">
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
 
           {/* Progress bar */}
-          <div className="hidden h-1 w-32 overflow-hidden rounded-full bg-slate-100 sm:block">
+          <div className="hidden h-0.5 w-32 overflow-hidden bg-slate-200 sm:block">
             <div
               key={current}
-              className={`h-full rounded-full bg-gradient-to-r ${slide.accent}`}
+              className={`h-full bg-gradient-to-r ${slide.accent}`}
               style={{ animation: paused ? "none" : "heroProgress 6s linear forwards" }}
             />
           </div>
