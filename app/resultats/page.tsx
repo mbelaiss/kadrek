@@ -89,7 +89,7 @@ const caseStudies = [
 
 const faqs = [
   { q: "Les résultats sont-ils garantis ?",       a: "Pas dans l'absolu — mais on commence par l'audit pour identifier exactement ce qui est atteignable dans votre contexte. On ne vend pas de promesses sans mesure : chaque sprint a des indicateurs de succès définis avant de démarrer." },
-  { q: "Quel est le budget minimum ?",            a: "Un projet d'automatisation ciblé démarre à partir de 2 000 €. Une transformation complète est tarifée selon la complexité et le périmètre. L'audit gratuit vous donne un devis précis et sans surprise." },
+  { q: "Quel est le budget minimum ?",            a: "Un projet d'automatisation ciblé démarre à partir de 2 000 €. Une transformation complète est tarifée selon la complexité et le périmètre. Le diagnostic vous donne un devis précis et sans surprise." },
   { q: "Combien de temps avant de voir un ROI ?", a: "Les premiers résultats arrivent en 2 à 4 semaines sur un périmètre ciblé. Le ROI complet sur un programme de transformation est visible à 3-6 mois. On construit une feuille de route par étapes pour que vous validiez avant d'aller plus loin." },
   { q: "Et si ça ne fonctionne pas pour nous ?",  a: "C'est pourquoi on commence par un sprint de 2 semaines avant tout engagement plus large. Si le premier livrable ne vous convainc pas, vous ne payez pas la suite. Notre modèle est construit sur la preuve, pas la promesse." },
 ];
@@ -113,7 +113,7 @@ export default function ResultatsPage() {
             <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">
               Chaque résultat présenté ici a été obtenu par une vraie entreprise. On mesure tout avant, pendant et après.
             </p>
-            <SquareButton href="/contact" accent="#2563eb">Obtenir un audit gratuit</SquareButton>
+            <SquareButton href="/contact" accent="#2563eb">Demander un diagnostic</SquareButton>
           </div>
         </div>
       </section>
@@ -296,9 +296,9 @@ export default function ResultatsPage() {
             <div>
               <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-white/30">Prochaine étape</div>
               <h2 className="mb-3 text-4xl font-black text-white lg:text-[50px]">Ces résultats peuvent être les vôtres</h2>
-              <p className="text-lg text-white/50">Commencez par un audit gratuit. On identifie vos opportunités et on vous donne un plan concret — en 45 minutes.</p>
+              <p className="text-lg text-white/50">Commencez par un diagnostic. On identifie vos opportunités et on vous donne un plan concret — en 45 minutes.</p>
             </div>
-            <SquareButton href="/contact" accent="#2563eb">Réserver mon audit gratuit</SquareButton>
+            <SquareButton href="/contact" accent="#2563eb">Demander un diagnostic</SquareButton>
           </div>
         </div>
       </section>

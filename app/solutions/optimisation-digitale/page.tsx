@@ -86,7 +86,7 @@ export default function OptimisationDigitalePage() {
       ]}
       cta={{
         title: "Votre transformation digitale mérite d'être optimisée",
-        subtitle: "Un audit de maturité digitale gratuit pour identifier vos gaspillages, vos blocages et vos meilleures opportunités — en 48 heures.",
+        subtitle: "Un audit de maturité digitale pour identifier vos gaspillages, vos blocages et vos meilleures opportunités — en 48 heures.",
       }}
       relatedSolutions={[
         { icon: "📊", title: "Data & Analytics",    href: "/solutions/data-analytics" },

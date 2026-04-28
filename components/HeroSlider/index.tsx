@@ -9,7 +9,7 @@ const slides = [
     eyebrow: "Transformation Digitale",
     title: "Transformez vos données en croissance mesurable",
     subtitle: "Kadrek conçoit des systèmes digitaux qui automatisent vos opérations, exploitent vos données et déploient l'IA au cœur de votre activité.",
-    cta1: { label: "Démarrer gratuitement", href: "/contact" },
+    cta1: { label: "Démarrer maintenant", href: "/contact" },
     cta2: { label: "Découvrir la méthode", href: "/digitalisation" },
     stats: [
       { value: "40%", label: "réduction des coûts" },

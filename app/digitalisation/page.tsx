@@ -60,7 +60,7 @@ export default function DigitalisationPage() {
               Ce qu'est réellement la transformation digitale, pourquoi votre entreprise ne peut plus attendre, et ce que vous gagnez concrètement — chiffres à l'appui.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <SquareButton href="/contact" accent="#2563eb">Obtenir un audit gratuit</SquareButton>
+              <SquareButton href="/contact" accent="#2563eb">Demander un diagnostic</SquareButton>
               <SquareButton href="#piliers" accent="#64748b">Lire le guide</SquareButton>
             </div>
           </div>
@@ -213,9 +213,9 @@ export default function DigitalisationPage() {
             <div>
               <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-white/30">Prochaine étape</div>
               <h2 className="mb-3 text-4xl font-black text-white lg:text-[50px]">Prêt à franchir le pas ?</h2>
-              <p className="text-lg text-white/50">Un audit gratuit. Une feuille de route concrète. Sans engagement.</p>
+              <p className="text-lg text-white/50">Un diagnostic. Une feuille de route concrète. Sans engagement.</p>
             </div>
-            <SquareButton href="/contact" accent="#2563eb">Réserver mon audit gratuit</SquareButton>
+            <SquareButton href="/contact" accent="#2563eb">Demander un diagnostic</SquareButton>
           </div>
         </div>
       </section>

@@ -32,7 +32,7 @@ const testimonials = [
 ];
 
 const process = [
-  { num: "01", title: "Audit gratuit",         desc: "45 min pour cartographier vos processus, identifier les goulots et prioriser les gains rapides." },
+  { num: "01", title: "Diagnostic",         desc: "45 min pour cartographier vos processus, identifier les goulots et prioriser les gains rapides." },
   { num: "02", title: "Sprint de 2 semaines",  desc: "On livre un premier résultat concret et mesurable — automatisation, dashboard ou agent IA." },
   { num: "03", title: "Scale & intégration",   desc: "On industrialise ce qui marche, on connecte vos outils et on forme vos équipes." },
   { num: "04", title: "Optimisation continue", desc: "Amélioration continue basée sur les données terrain. Vos systèmes s'améliorent chaque mois." },
@@ -252,10 +252,10 @@ export default function Home() {
                 Prêt à passer à la vitesse supérieure ?
               </h2>
               <p className="mb-5 text-lg text-white/50">
-                Un audit gratuit de 45 minutes. On identifie vos plus grandes opportunités et on vous donne un plan d&apos;action concret.
+                Un diagnostic de 45 minutes. On identifie vos plus grandes opportunités et on vous donne un plan d&apos;action concret.
               </p>
               <div className="flex flex-wrap gap-4 text-[13px] text-white/40">
-                {["Gratuit et sans engagement", "Premiers résultats en 2 semaines", "Feuille de route personnalisée"].map((f) => (
+                {["Sans engagement", "Premiers résultats en 2 semaines", "Feuille de route personnalisée"].map((f) => (
                   <span key={f} className="flex items-center gap-1.5">
                     <span className="text-blue-400 font-bold">✓</span> {f}
                   </span>
@@ -264,7 +264,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-3">
               <SquareButton href="/contact" accent="#2563eb">
-                Réserver mon audit gratuit
+                Demander un diagnostic
               </SquareButton>
               <SquareButton href="/services" variant="dark" accent="#334155">
                 Explorer nos solutions

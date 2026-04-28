@@ -363,7 +363,7 @@ export default function ServicesSlider() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <SquareButton href="/contact" accent={s.accent}>
-                Obtenir un audit gratuit
+                Demander un diagnostic
               </SquareButton>
               <SquareButton href={s.href} accent="#64748b">
                 En savoir plus

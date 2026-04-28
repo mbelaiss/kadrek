@@ -29,7 +29,7 @@ export default function PresenceSeoPage() {
         ],
       }}
       benefits={[
-        { icon: "🔍", title: "Top 3 Google sur vos mots-clés", desc: "Apparaître devant vos concurrents sur les recherches de vos clients idéaux. Trafic organique gratuit et qualifié." },
+        { icon: "🔍", title: "Top 3 Google sur vos mots-clés", desc: "Apparaître devant vos concurrents sur les recherches de vos clients idéaux. Trafic organique qualifié." },
         { icon: "⚡", title: "Site rapide = plus de conversions", desc: "1 seconde de chargement en moins = +7% de conversions. Un site technique optimisé rapporte concrètement." },
         { icon: "⭐", title: "Réputation gérée proactivement",  desc: "Avis positifs sollicités, négatifs traités professionnellement. Votre e-réputation devient un actif commercial." },
         { icon: "📊", title: "Tracking précis du ROI marketing", desc: "Savoir exactement d'où viennent vos leads, quelles pages convertissent, quel contenu génère des clients." },
@@ -86,7 +86,7 @@ export default function PresenceSeoPage() {
       ]}
       cta={{
         title: "Devenez le premier résultat Google de votre secteur",
-        subtitle: "Un audit SEO gratuit pour identifier vos opportunités prioritaires et vous montrer exactement comment nous allons vous propulser devant vos concurrents.",
+        subtitle: "Un audit SEO pour identifier vos opportunités prioritaires et vous montrer exactement comment nous allons vous propulser devant vos concurrents.",
       }}
       relatedSolutions={[
         { icon: "💻", title: "Interfaces clients",        href: "/solutions/interfaces-clients" },

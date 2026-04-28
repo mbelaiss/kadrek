@@ -42,7 +42,7 @@ export default function ServicesPage() {
               <h2 className="mb-3 text-4xl font-black text-white lg:text-[50px]">Quelle solution vous correspond ?</h2>
               <p className="text-lg text-white/50">En 45 minutes, on identifie exactement ce dont votre entreprise a besoin et on vous donne un plan d&apos;action chiffré.</p>
             </div>
-            <SquareButton href="/contact" accent="#2563eb">Réserver mon audit gratuit</SquareButton>
+            <SquareButton href="/contact" accent="#2563eb">Demander un diagnostic</SquareButton>
           </div>
         </div>
       </section>

@@ -86,7 +86,7 @@ export default function DataAnalyticsPage() {
       ]}
       cta={{
         title: "Voyez votre activité en temps réel dès cette semaine",
-        subtitle: "Un audit data gratuit pour identifier vos sources, vos KPIs prioritaires et vous montrer ce qu'un dashboard peut changer concrètement.",
+        subtitle: "Un diagnostic data pour identifier vos sources, vos KPIs prioritaires et vous montrer ce qu'un dashboard peut changer concrètement.",
       }}
       relatedSolutions={[
         { icon: "🤖", title: "Agents IA",         href: "/solutions/agents-ia" },

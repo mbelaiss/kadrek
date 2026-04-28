@@ -201,7 +201,7 @@ export default function SolutionPage(p: SolutionPageProps) {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <SquareButton href="/contact" accent={p.accentFrom}>
-                Démarrer gratuitement
+                Démarrer maintenant
               </SquareButton>
               <SquareButton href="/services" variant="dark" accent="#334155">
                 Toutes les solutions

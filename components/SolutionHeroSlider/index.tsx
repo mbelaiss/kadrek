@@ -39,7 +39,7 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
           </h1>
           <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">{p.subtitle}</p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <SquareButton href="/contact" accent={p.accent}>Obtenir un audit gratuit</SquareButton>
+            <SquareButton href="/contact" accent={p.accent}>Demander un diagnostic</SquareButton>
             <SquareButton href="#use-cases" accent="#64748b">Voir les cas d&apos;usage</SquareButton>
           </div>
         </div>
