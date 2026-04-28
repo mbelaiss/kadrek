@@ -26,9 +26,11 @@ export default function Header() {
   const openMenu  = (name: string) => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(name); };
   const closeMenu = () => { timerRef.current = setTimeout(() => setOpen(null), 150); };
 
-  /* ── Language switcher URLs — explicit hrefs for each locale ── */
-  const hrefFr = pathname === "/" ? "/" : pathname;
-  const hrefEn = pathname === "/" ? "/en" : `/en${pathname}`;
+  /* ── Language switcher URLs ── */
+  // Strip /en prefix in case usePathname() returns the full localized path
+  const basePath = pathname.startsWith("/en") ? pathname.slice(3) || "/" : pathname;
+  const hrefFr = basePath;
+  const hrefEn = basePath === "/" ? "/en" : `/en${basePath}`;
 
   const megaCols = [
     {
