@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
 import SquareButton from "@/components/SquareButton";
+import BenefitsSlider from "@/components/BenefitsSlider";
 
 export interface SolutionPageProps {
   eyebrow:    string;
@@ -130,28 +131,18 @@ export default function SolutionPage(p: SolutionPageProps) {
       {/* ══ BENEFITS ══ */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="mb-14">
-            <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Les bénéfices</div>
-            <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[44px]">
-              Ce que vous gagnez concrètement
-            </h2>
+          <div className="mb-14 flex items-end justify-between gap-6">
+            <div>
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Les bénéfices</div>
+              <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[44px]">
+                Ce que vous gagnez concrètement
+              </h2>
+            </div>
+            <p className="hidden lg:block max-w-xs text-[14px] text-slate-400">
+              {p.benefits.length} bénéfices · utilisez les flèches pour naviguer
+            </p>
           </div>
-          <div className="grid gap-px bg-slate-100 border border-slate-100 md:grid-cols-2 lg:grid-cols-3">
-            {p.benefits.map((b) => (
-              <div key={b.title} className="flex flex-col bg-white hover:shadow-[0_4px_20px_rgba(0,0,0,.06)] transition-shadow duration-200">
-                {/* Microsoft tile — visual area */}
-                <div className="flex h-40 items-center justify-center border-b border-slate-100"
-                  style={{ background: `${p.accentFrom}08` }}>
-                  <ImgFrame src={b.img} size={56} accent={p.accentFrom} />
-                </div>
-                {/* Content area */}
-                <div className="flex-1 p-7">
-                  <h3 className="mb-2.5 text-[16px] font-black text-slate-900">{b.title}</h3>
-                  <p className="text-[14px] leading-relaxed text-slate-500">{b.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <BenefitsSlider benefits={p.benefits} accent={p.accentFrom} />
         </div>
       </section>
 
