@@ -28,9 +28,6 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ["@react-pdf/renderer"],
-  },
   async headers() {
     return [
       {
@@ -41,13 +38,6 @@ const nextConfig = {
   },
   images: {
     domains: ["localhost"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        port: "",
-      },
-    ],
   },
 };
 
