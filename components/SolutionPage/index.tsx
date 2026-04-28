@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
 import SquareButton from "@/components/SquareButton";
 import BenefitsSlider from "@/components/BenefitsSlider";
+import SolutionHeroCard from "@/components/SolutionHeroCard";
 
 export interface SolutionPageProps {
   eyebrow:    string;
@@ -79,27 +80,14 @@ export default function SolutionPage(p: SolutionPageProps) {
               </div>
             </div>
 
-            {/* Hero card */}
+            {/* Hero slider card */}
             <div className="hidden lg:block">
-              <div className="border border-slate-200 bg-white">
-                <div className="border-b border-slate-100 px-6 py-4" style={{ borderLeftWidth: 4, borderLeftColor: p.accentFrom }}>
-                  <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Inclus dans cette solution</div>
-                </div>
-                <ul className="divide-y divide-slate-100">
-                  {p.features.slice(0, 5).map((f) => (
-                    <li key={f.name} className="flex items-center gap-4 px-6 py-3.5">
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center" style={{ background: p.accentFrom }}>
-                        <div className="h-px w-3 bg-white/50 absolute" />
-                        <div className="w-px h-3 bg-white/50 absolute" />
-                      </div>
-                      <span className="text-[13px] font-semibold text-slate-700">{f.name}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="border-t border-slate-100 px-6 py-3 text-[12px] font-semibold text-slate-400">
-                  + {p.features.length - 5} fonctionnalités supplémentaires
-                </div>
-              </div>
+              <SolutionHeroCard
+                accent={p.accentFrom}
+                features={p.features}
+                gains={p.gains}
+                benefits={p.benefits}
+              />
             </div>
           </div>
         </div>
