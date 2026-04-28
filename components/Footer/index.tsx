@@ -13,7 +13,8 @@ export default function Footer() {
     { key: "sol_auto",      href: "/solutions/automatisation" },
     { key: "sol_presence",  href: "/services#presence" },
     { key: "sol_formation", href: "/solutions/formation-ia" },
-    { key: "sol_dashboards",href: "/solutions/interfaces-clients" },
+    { key: "sol_dashboards",    href: "/solutions/interfaces-clients" },
+    { key: "sol_site_gestion",  href: "/solutions/site-gestion" },
   ] as const;
 
   const company = [

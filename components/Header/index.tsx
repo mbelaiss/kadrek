@@ -26,12 +26,9 @@ export default function Header() {
   const openMenu  = (name: string) => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(name); };
   const closeMenu = () => { timerRef.current = setTimeout(() => setOpen(null), 150); };
 
-  /* ── Language switcher URL ── */
-  const otherLocale = locale === "fr" ? "en" : "fr";
-  const switchHref =
-    locale === "fr"
-      ? `/en${pathname === "/" ? "" : pathname}`
-      : pathname === "/" ? "/" : pathname;
+  /* ── Language switcher URLs — explicit hrefs for each locale ── */
+  const hrefFr = pathname === "/" ? "/" : pathname;
+  const hrefEn = pathname === "/" ? "/en" : `/en${pathname}`;
 
   const megaCols = [
     {
@@ -53,8 +50,9 @@ export default function Header() {
     {
       heading: t("col3"),
       links: [
-        { name: t("interfaces"), sub: t("interfaces_sub"), href: "/solutions/interfaces-clients" },
-        { name: t("all"),        sub: t("all_sub"),        href: "/services" },
+        { name: t("interfaces"),    sub: t("interfaces_sub"),    href: "/solutions/interfaces-clients" },
+        { name: t("site_gestion"),  sub: t("site_gestion_sub"),  href: "/solutions/site-gestion" },
+        { name: t("all"),           sub: t("all_sub"),           href: "/services" },
       ],
     },
   ];
@@ -151,12 +149,11 @@ export default function Header() {
           {/* ── CTA + Lang switcher ── */}
           <div className="hidden items-center gap-3 lg:flex">
             {/* Language switcher */}
-            <a href={switchHref}
-              className="flex items-center gap-1 rounded border border-slate-200 px-2.5 py-1 text-[12px] font-black text-slate-500 transition hover:border-blue-300 hover:text-blue-600">
-              <span className={locale === "fr" ? "text-blue-600" : "text-slate-400"}>FR</span>
+            <div className="flex items-center gap-1 rounded border border-slate-200 px-2.5 py-1 text-[12px] font-black">
+              <a href={hrefFr} className={`transition hover:text-blue-600 ${locale === "fr" ? "text-blue-600" : "text-slate-400"}`}>FR</a>
               <span className="text-slate-300">/</span>
-              <span className={locale === "en" ? "text-blue-600" : "text-slate-400"}>EN</span>
-            </a>
+              <a href={hrefEn} className={`transition hover:text-blue-600 ${locale === "en" ? "text-blue-600" : "text-slate-400"}`}>EN</a>
+            </div>
             <Link href="/contact"
               className="group inline-flex items-stretch overflow-hidden transition-all hover:-translate-y-px hover:shadow-md">
               <span className="flex items-center bg-blue-600 px-5 py-2.5 text-[13px] font-black text-white">
@@ -203,9 +200,10 @@ export default function Header() {
               </Link>
             ))}
             {/* Mobile lang switcher */}
-            <a href={switchHref} className="block border-b border-slate-100 py-3 text-base font-bold text-blue-600">
-              {locale === "fr" ? "🇬🇧 English" : "🇫🇷 Français"}
-            </a>
+            <div className="flex gap-4 border-b border-slate-100 py-3">
+              <a href={hrefFr} className={`text-base font-bold ${locale === "fr" ? "text-blue-600" : "text-slate-400"}`}>🇫🇷 Français</a>
+              <a href={hrefEn} className={`text-base font-bold ${locale === "en" ? "text-blue-600" : "text-slate-400"}`}>🇬🇧 English</a>
+            </div>
           </div>
           <div className="border-t border-slate-100 p-5">
             <Link href="/contact" onClick={() => setMobile(false)}

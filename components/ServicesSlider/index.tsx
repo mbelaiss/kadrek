@@ -224,6 +224,63 @@ const services = [
     ),
   },
   {
+    id: "site-gestion",
+    num: "07",
+    eyebrow: "Site de Gestion PME",
+    title: "Votre site vitrine + votre outil de gestion, en un seul produit",
+    desc: "Une plateforme qui combine votre présence digitale publique, votre back-office de gestion interne et un portail client — pour piloter votre PME de la demande client jusqu'à la facture.",
+    benefits: [
+      "Site vitrine professionnel connecté à votre gestion",
+      "Devis, facturation et signature électronique intégrés",
+      "Planification des équipes et suivi des interventions",
+      "Gestion des stocks et inventaires en temps réel",
+      "Portail client : suivi, signature, messagerie",
+      "Tableau de bord pour piloter toute l'activité",
+    ],
+    accent: "#2563eb",
+    href: "/solutions/site-gestion",
+    visual: (_accent: string) => (
+      <div className="space-y-2">
+        <div className="border border-slate-200 bg-white overflow-hidden">
+          <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 flex items-center justify-between">
+            <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">Plateforme PME · Interventions</span>
+            <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-600"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />Live</span>
+          </div>
+          <div className="divide-y divide-slate-100">
+            {[
+              { id: "INT-0847", client: "Dupont SAS", status: "En cours", step: "Technicien sur site", color: "#2563eb" },
+              { id: "INT-0846", client: "Résidence Leblanc", status: "Planifié", step: "Demain 9h00", color: "#f59e0b" },
+              { id: "INT-0845", client: "Maison Martin", status: "Terminé", step: "Facturé · 840€", color: "#10b981" },
+            ].map((row) => (
+              <div key={row.id} className="flex items-center gap-3 px-4 py-3">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] font-black text-slate-400">{row.id}</div>
+                  <div className="text-[13px] font-semibold text-slate-800">{row.client}</div>
+                  <div className="text-[11px] text-slate-400">{row.step}</div>
+                </div>
+                <span className="flex-shrink-0 px-2.5 py-1 text-[11px] font-bold" style={{ color: row.color, background: `${row.color}15` }}>{row.status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="border border-slate-200 bg-white p-4">
+          <div className="mb-2 text-[11px] font-black uppercase tracking-widest text-slate-400">Portail client · INT-0847</div>
+          <div className="mb-2 flex items-center justify-between text-[12px]">
+            <span className="font-semibold text-slate-600">Avancement</span>
+            <span className="font-black text-blue-600">65%</span>
+          </div>
+          <div className="h-2 bg-slate-100">
+            <div className="h-full bg-blue-600 transition-all" style={{ width: "65%" }} />
+          </div>
+          <div className="mt-3 flex items-center gap-2 text-[11px] text-slate-400">
+            <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+            Devis signé · Facture auto à la clôture
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
     id: "dashboards",
     num: "06",
     eyebrow: "Dashboards & Interfaces",
