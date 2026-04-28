@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
+import SquareButton from "@/components/SquareButton";
 
 export interface SolutionPageProps {
   eyebrow:    string;
@@ -72,15 +73,12 @@ export default function SolutionPage(p: SolutionPageProps) {
               </h1>
               <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">{p.subtitle}</p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[14px] font-semibold text-white transition-all hover:opacity-90"
-                  style={{ background: p.accentFrom }}>
-                  Obtenir un audit gratuit <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a href="#use-cases"
-                  className="inline-flex items-center justify-center gap-2 border border-slate-200 bg-white px-7 py-3.5 text-[14px] font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50">
+                <SquareButton href="/contact" accent={p.accentFrom}>
+                  Obtenir un audit gratuit
+                </SquareButton>
+                <SquareButton href="#use-cases" accent="#64748b">
                   Voir les cas d&apos;usage
-                </a>
+                </SquareButton>
               </div>
             </div>
 
@@ -202,11 +200,9 @@ export default function SolutionPage(p: SolutionPageProps) {
               <p className="mb-8 text-lg leading-relaxed text-slate-500">
                 Chaque fonctionnalité répond à un problème concret dans votre quotidien opérationnel.
               </p>
-              <Link href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-[14px] font-semibold text-white transition-all hover:opacity-90"
-                style={{ background: p.accentFrom }}>
-                Discuter de mon projet <ArrowRight className="h-4 w-4" />
-              </Link>
+              <SquareButton href="/contact" accent={p.accentFrom}>
+                Discuter de mon projet
+              </SquareButton>
             </div>
             <div className="divide-y divide-slate-100 border border-slate-100 overflow-hidden">
               {p.features.map((f) => (
@@ -258,15 +254,12 @@ export default function SolutionPage(p: SolutionPageProps) {
               <p className="text-lg text-white/50">{p.cta.subtitle}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Link href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-[14px] font-semibold text-white transition-all hover:opacity-90"
-                style={{ background: p.accentFrom }}>
-                Démarrer gratuitement <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/services"
-                className="inline-flex items-center justify-center gap-2 border border-white/15 px-8 py-4 text-[14px] font-semibold text-white/60 transition-all hover:border-white/30 hover:text-white">
+              <SquareButton href="/contact" accent={p.accentFrom}>
+                Démarrer gratuitement
+              </SquareButton>
+              <SquareButton href="/services" variant="dark" accent="#334155">
                 Toutes les solutions
-              </Link>
+              </SquareButton>
             </div>
           </div>
         </div>

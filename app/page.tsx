@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
+import SquareButton from "@/components/SquareButton";
 
 export const metadata: Metadata = {
   title: "Kadrek | Digital Growth, Automation & AI",
@@ -108,10 +109,9 @@ export default function Home() {
           </div>
 
           <div className="mt-10 text-center">
-            <Link href="/services"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-slate-200 bg-white px-8 py-3.5 text-sm font-black text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
-              Voir toutes nos solutions <ArrowRight className="h-4 w-4" />
-            </Link>
+            <SquareButton href="/services" accent="#2563eb">
+              Voir toutes nos solutions
+            </SquareButton>
           </div>
         </div>
       </section>
@@ -261,14 +261,12 @@ export default function Home() {
               Un audit gratuit de 45 minutes. On identifie vos plus grandes opportunités et on vous donne un plan d'action concret — sans engagement.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-8 py-4 text-[14px] font-black text-white shadow-[0_4px_24px_rgba(34,211,238,.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_36px_rgba(34,211,238,.45)]">
-                Réserver mon audit gratuit <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/services"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-[14px] font-semibold text-white/70 transition-all hover:border-white/40 hover:text-white">
+              <SquareButton href="/contact" accent="#2563eb">
+                Réserver mon audit gratuit
+              </SquareButton>
+              <SquareButton href="/services" variant="dark" accent="#334155">
                 Explorer nos solutions
-              </Link>
+              </SquareButton>
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-6 text-[13px] text-white/40">
               {["✓ Gratuit et sans engagement", "✓ Premiers résultats en 2 semaines", "✓ Feuille de route personnalisée"].map((f) => (
