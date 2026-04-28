@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Kadrek",
     images: [
       {
-        url: "https://kadrek.com/images/og-image.jpeg",
+        url: "https://kadrek.com/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Kadrek - Digital Growth, Automation & AI",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Kadrek - Digital Growth, Automation & AI",
     description:
       "Conseil digital premium pour la croissance, l'automatisation et l'IA.",
-    images: ["https://kadrek.com/images/og-image.jpeg"],
+    images: ["https://kadrek.com/opengraph-image"],
   },
 
   robots: {
