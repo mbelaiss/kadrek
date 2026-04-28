@@ -1,0 +1,10 @@
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./routing";
+
+export default createMiddleware(routing);
+
+export const config = {
+  matcher: [
+    "/((?!api|_next|_vercel|opengraph-image|images|favicon\\.ico|favicon\\.png|googlea|BingSiteAuth|.*\\..*).*)",
+  ],
+};

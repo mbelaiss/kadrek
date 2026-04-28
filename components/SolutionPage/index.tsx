@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
 import SquareButton from "@/components/SquareButton";
 import BenefitsSlider from "@/components/BenefitsSlider";

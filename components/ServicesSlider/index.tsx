@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { useEffect, useState, useCallback } from "react";
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import SquareButton from "@/components/SquareButton";

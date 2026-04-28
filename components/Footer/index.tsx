@@ -1,26 +1,29 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Globe } from "lucide-react";
-
-const solutions = [
-  { name: "Data & Analytics",   href: "/services#data" },
-  { name: "Agents IA",          href: "/services#ia" },
-  { name: "Automatisation",     href: "/services#automatisation" },
-  { name: "Présence digitale",  href: "/services#presence" },
-  { name: "Formation IA",       href: "/services#formation" },
-  { name: "Dashboards & UI",    href: "/services#dashboards" },
-];
-
-const company = [
-  { name: "Accueil",            href: "/" },
-  { name: "Digitalisation",     href: "/digitalisation" },
-  { name: "Nos services",       href: "/services" },
-  { name: "Résultats",          href: "/resultats" },
-  { name: "Contact",            href: "/contact" },
-];
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
+  const solutions = [
+    { key: "sol_data",      href: "/solutions/data-analytics" },
+    { key: "sol_agents",    href: "/solutions/agents-ia" },
+    { key: "sol_auto",      href: "/solutions/automatisation" },
+    { key: "sol_presence",  href: "/services#presence" },
+    { key: "sol_formation", href: "/solutions/formation-ia" },
+    { key: "sol_dashboards",href: "/solutions/interfaces-clients" },
+  ] as const;
+
+  const company = [
+    { key: "co_home",    href: "/" },
+    { key: "co_digital", href: "/digitalisation" },
+    { key: "co_services",href: "/services" },
+    { key: "co_results", href: "/resultats" },
+    { key: "co_contact", href: "/contact" },
+  ] as const;
+
   return (
     <footer className="border-t border-slate-200 bg-white text-slate-700">
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
@@ -37,13 +40,11 @@ export default function Footer() {
                 <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Digital & AI</span>
               </span>
             </Link>
-            <p className="mb-6 max-w-sm text-sm leading-relaxed text-slate-500">
-              Conseil digital pour aider les entreprises à structurer leur croissance, automatiser leurs processus et utiliser l'IA avec impact réel.
-            </p>
+            <p className="mb-6 max-w-sm text-sm leading-relaxed text-slate-500">{t("tagline")}</p>
             <Link href="/contact"
               className="group inline-flex items-stretch overflow-hidden transition-all hover:-translate-y-px hover:shadow-sm">
               <span className="flex items-center border border-blue-200 bg-blue-50 px-5 py-2.5 text-[13px] font-black text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">
-                Démarrer un diagnostic
+                {t("cta")}
               </span>
               <span className="flex w-9 items-center justify-center border border-l-0 border-blue-200 bg-white transition-colors group-hover:bg-blue-700 group-hover:border-blue-700">
                 <ArrowRight className="h-3.5 w-3.5 text-blue-400 transition-colors group-hover:text-white" />
@@ -53,11 +54,13 @@ export default function Footer() {
 
           {/* Solutions */}
           <div>
-            <h3 className="mb-5 text-[11px] font-black uppercase tracking-widest text-slate-400">Solutions</h3>
+            <h3 className="mb-5 text-[11px] font-black uppercase tracking-widest text-slate-400">{t("sol_h")}</h3>
             <ul className="space-y-3">
               {solutions.map((s) => (
-                <li key={s.name}>
-                  <Link href={s.href} className="text-sm text-slate-500 transition-colors hover:text-blue-600">{s.name}</Link>
+                <li key={s.key}>
+                  <Link href={s.href} className="text-sm text-slate-500 transition-colors hover:text-blue-600">
+                    {t(s.key)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -65,11 +68,13 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="mb-5 text-[11px] font-black uppercase tracking-widest text-slate-400">Entreprise</h3>
+            <h3 className="mb-5 text-[11px] font-black uppercase tracking-widest text-slate-400">{t("co_h")}</h3>
             <ul className="space-y-3">
               {company.map((c) => (
-                <li key={c.name}>
-                  <Link href={c.href} className="text-sm text-slate-500 transition-colors hover:text-blue-600">{c.name}</Link>
+                <li key={c.key}>
+                  <Link href={c.href} className="text-sm text-slate-500 transition-colors hover:text-blue-600">
+                    {t(c.key)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -77,15 +82,15 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-5 text-[11px] font-black uppercase tracking-widest text-slate-400">Contact</h3>
+            <h3 className="mb-5 text-[11px] font-black uppercase tracking-widest text-slate-400">{t("ct_h")}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-slate-500">
                 <MapPin className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
-                Casablanca, Maroc
+                {t("hq")}
               </li>
               <li className="flex items-start gap-3 text-sm text-slate-500">
                 <Globe className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
-                Experts répartis dans le monde entier
+                {t("presence")}
               </li>
               <li className="flex items-start gap-3 text-sm text-slate-500">
                 <Mail className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
@@ -98,12 +103,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-6 sm:flex-row">
           <p className="text-sm text-slate-400">
-            © {new Date().getFullYear()} Kadrek. Tous droits réservés.
+            © {new Date().getFullYear()} Kadrek. {t("rights")}
           </p>
           <div className="flex gap-6 text-sm text-slate-400">
-            <span>Casablanca · Maroc</span>
+            <span>{t("location")}</span>
             <span>·</span>
-            <Link href="/contact" className="hover:text-blue-600 transition-colors">Nous contacter</Link>
+            <Link href="/contact" className="hover:text-blue-600 transition-colors">{t("contact_link")}</Link>
           </div>
         </div>
       </div>
