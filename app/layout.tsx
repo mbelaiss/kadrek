@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
   keywords: [
     "transformation digitale Maroc",
-    "intelligence artificielle Agadir",
+    "intelligence artificielle Casablanca",
     "automatisation Maroc",
     "automatisation des processus",
     "conseil digital",
@@ -103,10 +103,9 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Kadrek",
               url: "https://kadrek.com",
-              telephone: "+212668399548",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Agadir",
+                addressLocality: "Casablanca",
                 addressCountry: "MA",
               },
               areaServed: "Maroc",
