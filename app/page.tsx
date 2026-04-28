@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { num: "01", title: "Data & Analytics",      href: "/solutions/data-analytics",     desc: "Dashboards temps réel, KPI clairs, décisions basées sur des faits.", color: "#2563eb" },
-  { num: "02", title: "Agents IA",              href: "/solutions/agents-ia",          desc: "Support client, triage email, rapports automatiques — 24h/24.", color: "#7c3aed" },
-  { num: "03", title: "Automatisation",         href: "/solutions/automatisation",     desc: "Processus zéro friction. Factures, stocks, onboarding automatisés.", color: "#0891b2" },
-  { num: "04", title: "Présence & SEO",         href: "/solutions/presence-seo",       desc: "SEO, site web haute performance, réputation en ligne.", color: "#2563eb" },
-  { num: "05", title: "Formation IA",           href: "/solutions/formation-ia",       desc: "Votre équipe, augmentée par l'IA. Adoption rapide, résultats durables.", color: "#7c3aed" },
-  { num: "06", title: "Interfaces & Dashboards", href: "/solutions/interfaces-clients", desc: "Interfaces sur-mesure. Un écran, toute votre activité.", color: "#0891b2" },
+  { img: "", title: "Data & Analytics",       href: "/solutions/data-analytics",     desc: "Dashboards temps réel, KPI clairs, décisions basées sur des faits.", color: "#2563eb" },
+  { img: "", title: "Agents IA",               href: "/solutions/agents-ia",          desc: "Support client, triage email, rapports automatiques — 24h/24.", color: "#7c3aed" },
+  { img: "", title: "Automatisation",          href: "/solutions/automatisation",     desc: "Processus zéro friction. Factures, stocks, onboarding automatisés.", color: "#0891b2" },
+  { img: "", title: "Présence & SEO",          href: "/solutions/presence-seo",       desc: "SEO, site web haute performance, réputation en ligne.", color: "#2563eb" },
+  { img: "", title: "Formation IA",            href: "/solutions/formation-ia",       desc: "Votre équipe, augmentée par l'IA. Adoption rapide, résultats durables.", color: "#7c3aed" },
+  { img: "", title: "Interfaces & Dashboards", href: "/solutions/interfaces-clients", desc: "Interfaces sur-mesure. Un écran, toute votre activité.", color: "#0891b2" },
 ];
 
 const stats = [
@@ -79,13 +79,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-px bg-slate-100 border border-slate-100 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-px bg-slate-100 border border-slate-100 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <Link key={s.title} href={s.href}
                 className="group bg-white p-7 hover:bg-slate-50 transition-colors duration-200 flex flex-col">
-                <div className="mb-5 text-[11px] font-black uppercase tracking-widest"
-                  style={{ color: s.color }}>
-                  {s.num}
+                {/* Square image frame */}
+                <div className="mb-5 h-12 w-12 flex-shrink-0 overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center"
+                  style={{ background: s.img ? undefined : `${s.color}08` }}>
+                  {s.img
+                    ? <img src={s.img} alt={s.title} className="w-full h-full object-cover" /> /* eslint-disable-line @next/next/no-img-element */
+                    : <div className="relative w-full h-full">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="h-px w-1/2" style={{ background: `${s.color}50` }} />
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-px h-1/2" style={{ background: `${s.color}50` }} />
+                        </div>
+                      </div>
+                  }
                 </div>
                 <h3 className="mb-2.5 text-[16px] font-black text-slate-900">{s.title}</h3>
                 <p className="mb-5 flex-1 text-[14px] leading-relaxed text-slate-500">{s.desc}</p>

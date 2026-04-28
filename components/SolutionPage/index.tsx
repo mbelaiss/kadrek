@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ChevronRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
 
 export interface SolutionPageProps {
   eyebrow:    string;
@@ -9,43 +9,36 @@ export interface SolutionPageProps {
   accentFrom: string;
   accentTo:   string;
   bgFrom:     string;
-  problem: {
-    title:  string;
-    intro:  string;
-    points: string[];
-  };
-  benefits: {
-    icon:  string;
-    title: string;
-    desc:  string;
-  }[];
-  useCases: {
-    icon:      string;
-    scenario:  string;
-    challenge: string;
-    solution:  string;
-    result:    string;
-  }[];
-  features: {
-    icon: string;
-    name: string;
-    desc: string;
-  }[];
-  gains: {
-    label:  string;
-    before: string;
-    after:  string;
-    delta:  string;
-  }[];
-  cta: {
-    title:    string;
-    subtitle: string;
-  };
-  relatedSolutions: {
-    icon:  string;
-    title: string;
-    href:  string;
-  }[];
+  problem: { title: string; intro: string; points: string[] };
+  benefits:   { icon: string; img?: string; title: string; desc: string }[];
+  useCases:   { icon: string; img?: string; scenario: string; challenge: string; solution: string; result: string }[];
+  features:   { icon: string; name: string; desc: string }[];
+  gains:      { label: string; before: string; after: string; delta: string }[];
+  cta:        { title: string; subtitle: string };
+  relatedSolutions: { icon: string; img?: string; title: string; href: string }[];
+}
+
+/* Square image frame — pass src to show image, omit for placeholder */
+function ImgFrame({ src, size = 48, accent }: { src?: string; size?: number; accent: string }) {
+  const s = `${size}px`;
+  return (
+    <div
+      className="flex-shrink-0 overflow-hidden border border-slate-200 bg-slate-50"
+      style={{ width: s, height: s }}
+    >
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt="" className="w-full h-full object-cover" />
+      ) : (
+        /* placeholder — replace with <img src="…"> when you have the asset */
+        <div className="w-full h-full relative flex items-center justify-center"
+          style={{ background: `${accent}10` }}>
+          <div className="h-px w-1/2 absolute" style={{ background: `${accent}40` }} />
+          <div className="w-px h-1/2 absolute" style={{ background: `${accent}40` }} />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function SolutionPage(p: SolutionPageProps) {
@@ -54,15 +47,12 @@ export default function SolutionPage(p: SolutionPageProps) {
 
       {/* ══ HERO ══ */}
       <section className="relative overflow-hidden bg-white pb-24 pt-36 border-b border-slate-100">
-        {/* Subtle grid background */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(#0f172a 1px,transparent 1px),linear-gradient(90deg,#0f172a 1px,transparent 1px)", backgroundSize: "72px 72px" }} />
-        {/* Accent glow */}
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full opacity-10 blur-3xl"
           style={{ background: `radial-gradient(circle, ${p.accentFrom}, transparent 70%)` }} />
 
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-          {/* Breadcrumb */}
           <nav className="mb-8 flex items-center gap-2 text-[13px] text-slate-400">
             <Link href="/" className="hover:text-slate-600 transition-colors">Accueil</Link>
             <span className="text-slate-200">/</span>
@@ -73,42 +63,37 @@ export default function SolutionPage(p: SolutionPageProps) {
 
           <div className="grid items-center gap-16 lg:grid-cols-[1fr_380px]">
             <div>
-              <div className="mb-5 inline-block rounded-md px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white"
+              <div className="mb-5 inline-block px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white"
                 style={{ background: p.accentFrom }}>
                 {p.eyebrow}
               </div>
-
               <h1 className="mb-6 text-5xl font-black leading-[1.06] tracking-tight text-slate-900 lg:text-[58px]">
                 {p.title}
               </h1>
               <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">{p.subtitle}</p>
-
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-[14px] font-semibold text-white transition-all hover:opacity-90"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[14px] font-semibold text-white transition-all hover:opacity-90"
                   style={{ background: p.accentFrom }}>
                   Obtenir un audit gratuit <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a href="#use-cases"
-                  className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-7 py-3.5 text-[14px] font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50">
+                  className="inline-flex items-center justify-center gap-2 border border-slate-200 bg-white px-7 py-3.5 text-[14px] font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50">
                   Voir les cas d&apos;usage
                 </a>
               </div>
             </div>
 
-            {/* Hero card — clean list */}
+            {/* Hero card */}
             <div className="hidden lg:block">
-              <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
+              <div className="border border-slate-200 bg-white shadow-sm">
                 <div className="border-b border-slate-100 px-6 py-4">
                   <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Inclus dans cette solution</div>
                 </div>
                 <ul className="divide-y divide-slate-100">
                   {p.features.slice(0, 5).map((f, i) => (
                     <li key={f.name} className="flex items-center gap-4 px-6 py-3.5">
-                      <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-[10px] font-black text-white"
-                        style={{ background: p.accentFrom }}>
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                      <ImgFrame size={28} accent={p.accentFrom} />
                       <span className="text-[13px] font-semibold text-slate-700">{f.name}</span>
                     </li>
                   ))}
@@ -135,8 +120,8 @@ export default function SolutionPage(p: SolutionPageProps) {
             </div>
             <div className="space-y-2">
               {p.problem.points.map((point, i) => (
-                <div key={i} className="flex items-start gap-4 rounded-lg border border-slate-200 bg-white px-5 py-4">
-                  <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100 text-[10px] font-black text-red-500">✕</span>
+                <div key={i} className="flex items-start gap-4 border border-slate-200 bg-white px-5 py-4">
+                  <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center bg-red-100 text-[10px] font-black text-red-500">✕</span>
                   <span className="text-[14px] leading-relaxed text-slate-600">{point}</span>
                 </div>
               ))}
@@ -154,12 +139,11 @@ export default function SolutionPage(p: SolutionPageProps) {
               Ce que vous gagnez concrètement
             </h2>
           </div>
-          <div className="grid gap-px bg-slate-100 border border-slate-100 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
-            {p.benefits.map((b, i) => (
+          <div className="grid gap-px bg-slate-100 border border-slate-100 md:grid-cols-2 lg:grid-cols-3">
+            {p.benefits.map((b) => (
               <div key={b.title} className="bg-white p-8 hover:bg-slate-50 transition-colors duration-200">
-                <div className="mb-5 text-[11px] font-black uppercase tracking-widest"
-                  style={{ color: p.accentFrom }}>
-                  {String(i + 1).padStart(2, "0")}
+                <div className="mb-5">
+                  <ImgFrame src={b.img} size={48} accent={p.accentFrom} />
                 </div>
                 <h3 className="mb-2.5 text-[16px] font-black text-slate-900">{b.title}</h3>
                 <p className="text-[14px] leading-relaxed text-slate-500">{b.desc}</p>
@@ -181,14 +165,11 @@ export default function SolutionPage(p: SolutionPageProps) {
               Des scénarios réels, des problèmes identifiables, des résultats mesurables.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {p.useCases.map((uc, i) => (
-              <div key={uc.scenario} className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+          <div className="grid gap-4 md:grid-cols-2">
+            {p.useCases.map((uc) => (
+              <div key={uc.scenario} className="border border-slate-200 bg-white overflow-hidden">
                 <div className="flex items-center gap-4 border-b border-slate-100 px-6 py-4">
-                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md text-[11px] font-black text-white"
-                    style={{ background: p.accentFrom }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <ImgFrame src={uc.img} size={36} accent={p.accentFrom} />
                   <span className="font-bold text-[14px] text-slate-800">{uc.scenario}</span>
                 </div>
                 <div className="grid grid-cols-3 divide-x divide-slate-100">
@@ -222,13 +203,13 @@ export default function SolutionPage(p: SolutionPageProps) {
                 Chaque fonctionnalité répond à un problème concret dans votre quotidien opérationnel.
               </p>
               <Link href="/contact"
-                className="inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-[14px] font-semibold text-white transition-all hover:opacity-90"
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-[14px] font-semibold text-white transition-all hover:opacity-90"
                 style={{ background: p.accentFrom }}>
                 Discuter de mon projet <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="divide-y divide-slate-100 border border-slate-100 rounded-xl overflow-hidden">
-              {p.features.map((f, i) => (
+            <div className="divide-y divide-slate-100 border border-slate-100 overflow-hidden">
+              {p.features.map((f) => (
                 <div key={f.name} className="flex items-start gap-4 bg-white px-5 py-4 hover:bg-slate-50 transition-colors">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: p.accentFrom }} />
                   <div>
@@ -253,11 +234,11 @@ export default function SolutionPage(p: SolutionPageProps) {
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {p.gains.map((g) => (
-              <div key={g.label} className="rounded-xl border border-slate-200 bg-white p-6">
+              <div key={g.label} className="border border-slate-200 bg-white p-6">
                 <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">{g.label}</div>
                 <div className="mb-1 text-[13px] font-semibold text-red-400 line-through">{g.before}</div>
                 <div className="text-2xl font-black text-slate-900">{g.after}</div>
-                <div className="mt-3 inline-block rounded-md px-2.5 py-1 text-[11px] font-bold text-white"
+                <div className="mt-3 inline-block px-2.5 py-1 text-[11px] font-bold text-white"
                   style={{ background: p.accentFrom }}>
                   {g.delta}
                 </div>
@@ -278,12 +259,12 @@ export default function SolutionPage(p: SolutionPageProps) {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-[14px] font-semibold text-white transition-all hover:opacity-90"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-[14px] font-semibold text-white transition-all hover:opacity-90"
                 style={{ background: p.accentFrom }}>
                 Démarrer gratuitement <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-8 py-4 text-[14px] font-semibold text-white/60 transition-all hover:border-white/30 hover:text-white">
+                className="inline-flex items-center justify-center gap-2 border border-white/15 px-8 py-4 text-[14px] font-semibold text-white/60 transition-all hover:border-white/30 hover:text-white">
                 Toutes les solutions
               </Link>
             </div>
@@ -301,7 +282,8 @@ export default function SolutionPage(p: SolutionPageProps) {
               </span>
               {p.relatedSolutions.map((r) => (
                 <Link key={r.title} href={r.href}
-                  className="inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2.5 text-[13px] font-semibold text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50">
+                  className="inline-flex items-center gap-3 border border-slate-200 bg-white px-4 py-2.5 text-[13px] font-semibold text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50">
+                  <ImgFrame src={r.img} size={20} accent="#2563eb" />
                   {r.title}
                   <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
                 </Link>
