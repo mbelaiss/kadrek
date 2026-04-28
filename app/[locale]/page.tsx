@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
+import PlatformSlider from "@/components/PlatformSlider";
 import SquareButton from "@/components/SquareButton";
 import { Link } from "@/navigation";
 import type { Locale } from "@/routing";
@@ -198,6 +199,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <div className="bg-white text-slate-900">
       <HeroSlider />
+      <PlatformSlider />
 
       {/* ══ TRUST BAR ══ */}
       <div className="border-y border-slate-100 bg-white">
