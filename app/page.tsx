@@ -9,25 +9,13 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { icon: "📊", title: "Data & Analytics",      href: "/solutions/data-analytics",       desc: "Dashboards temps réel, KPI clairs, décisions basées sur des faits.", accent: "blue" },
-  { icon: "🤖", title: "Agents IA",              href: "/solutions/agents-ia",            desc: "Support client, triage email, rapports automatiques — 24h/24.", accent: "purple" },
-  { icon: "⚙️", title: "Automatisation",          href: "/solutions/automatisation",       desc: "Processus zéro friction. Factures, stocks, onboarding automatisés.", accent: "cyan" },
-  { icon: "🌐", title: "Présence & SEO",         href: "/solutions/presence-seo",         desc: "SEO, site web haute performance, réputation en ligne.", accent: "blue" },
-  { icon: "🎓", title: "Formation IA",            href: "/solutions/formation-ia",         desc: "Votre équipe, augmentée par l'IA. Adoption rapide, résultats durables.", accent: "purple" },
-  { icon: "💻", title: "Interfaces & Dashboards", href: "/solutions/interfaces-clients",   desc: "Interfaces sur-mesure. Un écran, toute votre activité.", accent: "cyan" },
+  { num: "01", title: "Data & Analytics",      href: "/solutions/data-analytics",     desc: "Dashboards temps réel, KPI clairs, décisions basées sur des faits.", color: "#2563eb" },
+  { num: "02", title: "Agents IA",              href: "/solutions/agents-ia",          desc: "Support client, triage email, rapports automatiques — 24h/24.", color: "#7c3aed" },
+  { num: "03", title: "Automatisation",         href: "/solutions/automatisation",     desc: "Processus zéro friction. Factures, stocks, onboarding automatisés.", color: "#0891b2" },
+  { num: "04", title: "Présence & SEO",         href: "/solutions/presence-seo",       desc: "SEO, site web haute performance, réputation en ligne.", color: "#2563eb" },
+  { num: "05", title: "Formation IA",           href: "/solutions/formation-ia",       desc: "Votre équipe, augmentée par l'IA. Adoption rapide, résultats durables.", color: "#7c3aed" },
+  { num: "06", title: "Interfaces & Dashboards", href: "/solutions/interfaces-clients", desc: "Interfaces sur-mesure. Un écran, toute votre activité.", color: "#0891b2" },
 ];
-
-const accentMap: Record<string, string> = {
-  blue:   "bg-blue-50   border-blue-100   group-hover:border-blue-200   group-hover:shadow-[0_8px_30px_rgba(37,99,235,.1)]",
-  purple: "bg-purple-50 border-purple-100 group-hover:border-purple-200 group-hover:shadow-[0_8px_30px_rgba(124,58,237,.1)]",
-  cyan:   "bg-cyan-50   border-cyan-100   group-hover:border-cyan-200   group-hover:shadow-[0_8px_30px_rgba(6,182,212,.1)]",
-};
-
-const iconBg: Record<string, string> = {
-  blue:   "bg-blue-100   text-blue-600",
-  purple: "bg-purple-100 text-purple-600",
-  cyan:   "bg-cyan-100   text-cyan-600",
-};
 
 const stats = [
   { value: "40%",  label: "réduction des coûts opérationnels" },
@@ -91,17 +79,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-px bg-slate-100 border border-slate-100 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <Link key={s.title} href={s.href}
-                className={`group rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 ${accentMap[s.accent]}`}>
-                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${iconBg[s.accent]}`}>
-                  {s.icon}
+                className="group bg-white p-7 hover:bg-slate-50 transition-colors duration-200 flex flex-col">
+                <div className="mb-5 text-[11px] font-black uppercase tracking-widest"
+                  style={{ color: s.color }}>
+                  {s.num}
                 </div>
-                <h3 className="mb-2 text-lg font-black text-slate-800">{s.title}</h3>
-                <p className="mb-4 text-sm leading-relaxed text-slate-500">{s.desc}</p>
-                <div className="flex items-center gap-1 text-[13px] font-bold text-blue-600 group-hover:gap-2 transition-all">
-                  En savoir plus <ChevronRight className="h-4 w-4" />
+                <h3 className="mb-2.5 text-[16px] font-black text-slate-900">{s.title}</h3>
+                <p className="mb-5 flex-1 text-[14px] leading-relaxed text-slate-500">{s.desc}</p>
+                <div className="flex items-center gap-1.5 text-[13px] font-semibold text-slate-400 group-hover:text-slate-700 transition-colors">
+                  En savoir plus <ArrowRight className="h-3.5 w-3.5" />
                 </div>
               </Link>
             ))}

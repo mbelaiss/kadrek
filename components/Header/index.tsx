@@ -10,24 +10,24 @@ const megaMenu = {
       {
         heading: "Données & IA",
         links: [
-          { icon: "📊", name: "Data & Analytics",    sub: "Dashboards et KPI en temps réel",       href: "/solutions/data-analytics" },
-          { icon: "🤖", name: "Agents IA",            sub: "Automatisation intelligente 24h/24",    href: "/solutions/agents-ia" },
-          { icon: "🎓", name: "Formation IA",         sub: "Votre équipe, augmentée par l'IA",      href: "/solutions/formation-ia" },
+          { name: "Data & Analytics",    sub: "Dashboards et KPI en temps réel",          href: "/solutions/data-analytics" },
+          { name: "Agents IA",           sub: "Automatisation intelligente 24h/24",        href: "/solutions/agents-ia" },
+          { name: "Formation IA",        sub: "Votre équipe, augmentée par l'IA",          href: "/solutions/formation-ia" },
         ],
       },
       {
         heading: "Croissance & Visibilité",
         links: [
-          { icon: "🌐", name: "Présence & SEO",      sub: "SEO, site web, réputation en ligne",    href: "/solutions/presence-seo" },
-          { icon: "⚙️", name: "Automatisation",       sub: "Processus zéro friction, ROI immédiat", href: "/solutions/automatisation" },
-          { icon: "🔧", name: "Optimisation digitale", sub: "Audit et rationalisation de votre stack", href: "/solutions/optimisation-digitale" },
+          { name: "Présence & SEO",       sub: "SEO, site web, réputation en ligne",       href: "/solutions/presence-seo" },
+          { name: "Automatisation",       sub: "Processus zéro friction, ROI immédiat",    href: "/solutions/automatisation" },
+          { name: "Optimisation digitale", sub: "Audit et rationalisation de votre stack", href: "/solutions/optimisation-digitale" },
         ],
       },
       {
         heading: "Interfaces & Systèmes",
         links: [
-          { icon: "💻", name: "Interfaces clients",  sub: "Dashboards et portails sur-mesure",     href: "/solutions/interfaces-clients" },
-          { icon: "🌐", name: "Voir toutes les solutions", sub: "Découvrez l'offre complète Kadrek", href: "/services" },
+          { name: "Interfaces clients",        sub: "Dashboards et portails sur-mesure",   href: "/solutions/interfaces-clients" },
+          { name: "Voir toutes les solutions", sub: "Découvrez l'offre complète Kadrek",   href: "/services" },
         ],
       },
     ],
@@ -111,10 +111,10 @@ export default function Header() {
                           <div className="space-y-1">
                             {col.links.map((link) => (
                               <Link key={link.name} href={link.href} onClick={() => setOpen(null)}
-                                className="group flex items-start gap-3 rounded-xl p-2.5 transition-all hover:bg-blue-50">
-                                <span className="mt-0.5 text-lg leading-none">{link.icon}</span>
+                                className="group flex items-start gap-3 rounded-lg p-2.5 transition-all hover:bg-slate-50">
+                                <span className="mt-1 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-300 group-hover:bg-blue-500 transition-colors" />
                                 <span>
-                                  <span className="block text-[13px] font-bold text-slate-800 group-hover:text-blue-600">{link.name}</span>
+                                  <span className="block text-[13px] font-semibold text-slate-800 group-hover:text-blue-600">{link.name}</span>
                                   <span className="block text-[11px] text-slate-400 mt-0.5">{link.sub}</span>
                                 </span>
                               </Link>
@@ -185,8 +185,9 @@ export default function Header() {
               <div className="py-3 space-y-1">
                 {megaMenu.Solutions.cols.flatMap((c) => c.links).map((link) => (
                   <Link key={link.name} href={link.href} onClick={() => setMobile(false)}
-                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-                    <span>{link.icon}</span> {link.name}
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                    <span className="h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0" />
+                    {link.name}
                   </Link>
                 ))}
               </div>
