@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import SquareButton from "@/components/SquareButton";
 
 export const metadata: Metadata = {
   title: "Nos Services | Kadrek",
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 const services = [
   {
     id: "data",
-    icon: "📊",
-    eyebrow: "01 · Data & Analytics",
+    num: "01",
+    eyebrow: "Data & Analytics",
     title: "Transformez vos données en avantage concurrentiel",
     desc: "Chaque vente, chaque commande, chaque interaction génère de la data. Les entreprises qui l'exploitent croissent 2 à 3× plus vite. On vous aide à la collecter, la structurer et l'utiliser pour décider mieux et plus vite.",
     benefits: [
@@ -22,14 +22,13 @@ const services = [
       "Identification des clients les plus rentables",
       "Détection des coûts cachés et des inefficacités",
     ],
-    accent: "blue",
-    gradient: "from-blue-600 to-blue-400",
-    bg: "from-blue-50/60 to-slate-50",
+    accent: "#2563eb",
+    href: "/solutions/data-analytics",
   },
   {
     id: "ia",
-    icon: "🤖",
-    eyebrow: "02 · Agents IA",
+    num: "02",
+    eyebrow: "Agents IA",
     title: "Une IA qui travaille pour vous 24h/24, 7j/7",
     desc: "Les agents IA gèrent les tâches répétitives à votre place : répondre aux clients, trier les emails, générer des rapports, détecter les anomalies. Vos équipes se concentrent sur ce qui crée vraiment de la valeur.",
     benefits: [
@@ -40,14 +39,13 @@ const services = [
       "Planification intelligente des réunions et ressources",
       "Traitement des commandes et mises à jour de stock auto",
     ],
-    accent: "purple",
-    gradient: "from-purple-600 to-blue-500",
-    bg: "from-purple-50/60 to-slate-50",
+    accent: "#7c3aed",
+    href: "/solutions/agents-ia",
   },
   {
     id: "automatisation",
-    icon: "⚙️",
-    eyebrow: "03 · Automatisation",
+    num: "03",
+    eyebrow: "Automatisation",
     title: "Supprimez les tâches répétitives une bonne fois pour toutes",
     desc: "Facturation, onboarding, commandes, relances, conformité — chaque processus manuel est un coût caché. On les automatise pour que votre équipe arrête de faire ce que les machines font mieux.",
     benefits: [
@@ -58,14 +56,13 @@ const services = [
       "Rapports de conformité générés automatiquement",
       "Alertes et escalades selon des seuils définis",
     ],
-    accent: "cyan",
-    gradient: "from-cyan-500 to-blue-600",
-    bg: "from-cyan-50/60 to-slate-50",
+    accent: "#0891b2",
+    href: "/solutions/automatisation",
   },
   {
     id: "presence",
-    icon: "🌐",
-    eyebrow: "04 · Présence Digitale",
+    num: "04",
+    eyebrow: "Présence Digitale",
     title: "Soyez trouvé, choisi, et mémorable en ligne",
     desc: "97% des acheteurs cherchent en ligne avant d'acheter. Votre présence digitale est votre commercial le plus disponible — et il doit être au niveau. Site rapide, SEO solide, réputation gérée.",
     benefits: [
@@ -76,14 +73,13 @@ const services = [
       "Stratégie réseaux sociaux et contenu",
       "Analytics : savoir exactement ce qui convertit",
     ],
-    accent: "blue",
-    gradient: "from-blue-500 to-cyan-400",
-    bg: "from-blue-50/40 to-slate-50",
+    accent: "#2563eb",
+    href: "/solutions/presence-seo",
   },
   {
     id: "formation",
-    icon: "🎓",
-    eyebrow: "05 · Formation IA",
+    num: "05",
+    eyebrow: "Formation IA",
     title: "Votre équipe, augmentée par l'intelligence artificielle",
     desc: "La technologie la plus puissante ne sert à rien si votre équipe ne l'utilise pas. On forme vos collaborateurs à travailler avec l'IA — pratiquement, par rôle, sur vos vrais outils.",
     benefits: [
@@ -94,14 +90,13 @@ const services = [
       "Tutoriels et documentation adaptés à chaque équipe",
       "Suivi de l'adoption avec indicateurs mesurables",
     ],
-    accent: "purple",
-    gradient: "from-purple-500 to-pink-400",
-    bg: "from-purple-50/40 to-slate-50",
+    accent: "#7c3aed",
+    href: "/solutions/formation-ia",
   },
   {
     id: "dashboards",
-    icon: "💻",
-    eyebrow: "06 · Dashboards & Interfaces",
+    num: "06",
+    eyebrow: "Dashboards & Interfaces",
     title: "Toute votre activité sur un seul écran",
     desc: "Un dashboard bien conçu vous fait gagner 30 minutes par matin. On conçoit des interfaces métier sur-mesure — simples, rapides, connectées à vos systèmes — pour que vous et vos équipes agissent, pas cherchez.",
     benefits: [
@@ -112,102 +107,94 @@ const services = [
       "Connexion à tous vos outils (CRM, ERP, comptabilité)",
       "Design responsive — desktop, tablette, mobile",
     ],
-    accent: "cyan",
-    gradient: "from-cyan-400 to-blue-600",
-    bg: "from-cyan-50/40 to-slate-50",
+    accent: "#0891b2",
+    href: "/solutions/interfaces-clients",
   },
 ];
-
-const accentClasses: Record<string, { badge: string; icon: string; check: string }> = {
-  blue:   { badge: "bg-blue-50 border-blue-100 text-blue-600",     icon: "bg-blue-100 text-blue-600",     check: "text-blue-500"   },
-  purple: { badge: "bg-purple-50 border-purple-100 text-purple-600", icon: "bg-purple-100 text-purple-600", check: "text-purple-500" },
-  cyan:   { badge: "bg-cyan-50 border-cyan-100 text-cyan-600",     icon: "bg-cyan-100 text-cyan-600",     check: "text-cyan-500"   },
-};
 
 export default function ServicesPage() {
   return (
     <div className="bg-white text-slate-900">
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-slate-50 to-blue-50/40 pb-20 pt-36">
-        <div className="pointer-events-none absolute inset-0"
-          style={{ backgroundImage: "linear-gradient(rgba(0,0,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.025) 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="relative mx-auto max-w-[1400px] px-6 text-center lg:px-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-blue-600">
-            Nos Solutions
-          </div>
-          <h1 className="mx-auto mb-5 max-w-4xl text-5xl font-black leading-[1.06] tracking-tight text-slate-900 lg:text-6xl">
-            Six expertises pour une entreprise{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              plus performante
-            </span>
-          </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-xl leading-relaxed text-slate-500">
-            Data, IA, automatisation, présence digitale, formation et interfaces sur-mesure. Chaque brique rend votre organisation plus rapide, plus intelligente et plus rentable.
-          </p>
-          {/* Quick links */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {services.map((s) => (
-              <a key={s.id} href={`#${s.id}`}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold text-slate-600 shadow-sm transition-all hover:border-blue-200 hover:text-blue-600 hover:shadow-md">
-                {s.icon} {s.title.split(" ")[0]}
-              </a>
-            ))}
+      <section className="relative overflow-hidden bg-white pb-24 pt-36 border-b border-slate-100">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: "linear-gradient(#0f172a 1px,transparent 1px),linear-gradient(90deg,#0f172a 1px,transparent 1px)", backgroundSize: "72px 72px" }} />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="max-w-3xl">
+            <div className="mb-5 inline-block bg-blue-600 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white">
+              Nos Solutions
+            </div>
+            <h1 className="mb-6 text-5xl font-black leading-[1.06] tracking-tight text-slate-900 lg:text-[64px]">
+              Six expertises pour une entreprise plus performante
+            </h1>
+            <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">
+              Data, IA, automatisation, présence digitale, formation et interfaces sur-mesure. Chaque brique rend votre organisation plus rapide, plus intelligente et plus rentable.
+            </p>
+            {/* Quick nav */}
+            <div className="flex flex-wrap gap-2">
+              {services.map((s) => (
+                <a key={s.id} href={`#${s.id}`}
+                  className="border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold text-slate-600 transition-all hover:border-slate-400 hover:text-slate-900">
+                  {s.num} · {s.eyebrow}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Services ── */}
       {services.map((s, i) => {
-        const ac = accentClasses[s.accent];
         const isEven = i % 2 === 0;
         return (
-          <section key={s.id} id={s.id}
-            className={`py-24 ${isEven ? "bg-white" : "bg-slate-50"}`}>
+          <section key={s.id} id={s.id} className={`py-24 ${isEven ? "bg-white" : "bg-slate-50"}`}>
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <div className={`grid items-center gap-12 lg:grid-cols-2 ${!isEven ? "lg:flex-row-reverse" : ""}`}
-                style={{ direction: !isEven ? "rtl" : "ltr" }}>
-                <div style={{ direction: "ltr" }}>
-                  <div className={`mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-black uppercase tracking-widest ${ac.badge}`}>
-                    {s.eyebrow}
+              <div className={`grid items-start gap-16 lg:grid-cols-2`}>
+
+                {/* Content */}
+                <div className={isEven ? "" : "lg:order-2"}>
+                  <div className="mb-5 inline-block px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white"
+                    style={{ background: s.accent }}>
+                    {s.num} · {s.eyebrow}
                   </div>
-                  <h2 className="mb-5 text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-5xl">
+                  <h2 className="mb-5 text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-[44px]">
                     {s.title}
                   </h2>
                   <p className="mb-7 text-lg leading-relaxed text-slate-500">{s.desc}</p>
-                  <ul className="mb-8 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                  <ul className="mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2">
                     {s.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-[14px] text-slate-700">
-                        <CheckCircle2 className={`mt-0.5 h-4 w-4 flex-none ${ac.check}`} />
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none" style={{ color: s.accent }} />
                         {b}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact"
-                    className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${s.gradient} px-7 py-3.5 text-[14px] font-black text-white shadow-[0_4px_20px_rgba(37,99,235,.25)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(37,99,235,.35)]`}>
-                    Discuter de mon projet <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <SquareButton href="/contact" accent={s.accent}>Discuter de mon projet</SquareButton>
                 </div>
 
                 {/* Visual card */}
-                <div style={{ direction: "ltr" }}
-                  className={`rounded-3xl bg-gradient-to-br ${s.bg} border border-slate-100 p-8 shadow-sm`}>
-                  <div className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl text-4xl ${ac.icon}`}>
-                    {s.icon}
+                <div className={`border border-slate-200 bg-white ${isEven ? "" : "lg:order-1"}`}>
+                  <div className="border-b border-slate-100 px-6 py-4" style={{ borderLeftWidth: 4, borderLeftColor: s.accent }}>
+                    <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mb-1">{s.eyebrow}</div>
+                    <div className="text-[13px] font-black text-slate-700">{s.title.split(" ").slice(0, 5).join(" ")}</div>
                   </div>
-                  <h3 className="mb-4 text-xl font-black text-slate-800">{s.title.split(" ").slice(0, 4).join(" ")}</h3>
-                  <ul className="space-y-3">
-                    {s.benefits.slice(0, 4).map((b) => (
-                      <li key={b} className="flex items-center gap-3 rounded-xl border border-white/70 bg-white px-4 py-3 text-[13px] font-semibold text-slate-700 shadow-sm">
-                        <CheckCircle2 className={`h-4 w-4 flex-none ${ac.check}`} />
-                        {b}
+                  <ul className="divide-y divide-slate-100">
+                    {s.benefits.slice(0, 5).map((b) => (
+                      <li key={b} className="flex items-center gap-4 px-6 py-3.5">
+                        <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center text-[10px] font-black text-white"
+                          style={{ background: s.accent }}>
+                          ✓
+                        </span>
+                        <span className="text-[13px] font-semibold text-slate-700">{b}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 rounded-xl bg-white/70 p-3 text-center text-[12px] font-bold text-slate-500 border border-white">
-                    + {s.benefits.length - 4} autres fonctionnalités incluses
+                  <div className="border-t border-slate-100 px-6 py-3 text-[12px] font-semibold text-slate-400">
+                    + {s.benefits.length - 5} fonctionnalités supplémentaires
                   </div>
                 </div>
+
               </div>
             </div>
           </section>
@@ -215,16 +202,16 @@ export default function ServicesPage() {
       })}
 
       {/* ── CTA ── */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-24">
-        <div className="mx-auto max-w-[1400px] px-6 text-center lg:px-10">
-          <h2 className="mb-5 text-4xl font-black text-white lg:text-5xl">Quelle solution vous correspond ?</h2>
-          <p className="mb-10 text-xl text-white/60 max-w-xl mx-auto">
-            En 45 minutes, on identifie exactement ce dont votre entreprise a besoin et on vous donne un plan d'action chiffré.
-          </p>
-          <Link href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 px-10 py-4 text-[15px] font-black text-white shadow-[0_4px_24px_rgba(34,211,238,.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_36px_rgba(34,211,238,.45)]">
-            Réserver mon audit gratuit <ArrowRight className="h-4 w-4" />
-          </Link>
+      <section className="bg-slate-900 py-24">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="grid lg:grid-cols-[1fr_auto] items-center gap-10">
+            <div>
+              <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-white/30">Prochaine étape</div>
+              <h2 className="mb-3 text-4xl font-black text-white lg:text-[50px]">Quelle solution vous correspond ?</h2>
+              <p className="text-lg text-white/50">En 45 minutes, on identifie exactement ce dont votre entreprise a besoin et on vous donne un plan d'action chiffré.</p>
+            </div>
+            <SquareButton href="/contact" accent="#2563eb">Réserver mon audit gratuit</SquareButton>
+          </div>
         </div>
       </section>
 
