@@ -1,14 +1,32 @@
 import { MetadataRoute } from "next";
 
+const base = "https://kadrek.com";
+
+const routes = [
+  "",
+  "/contact",
+  "/services",
+  "/digitalisation",
+  "/resultats",
+  "/solutions/data-analytics",
+  "/solutions/agents-ia",
+  "/solutions/automatisation",
+  "/solutions/formation-ia",
+  "/solutions/interfaces-clients",
+  "/solutions/optimisation-digitale",
+  "/solutions/presence-seo",
+  "/solutions/site-gestion",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://kadrek.com",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://kadrek.com/contact",
-      lastModified: new Date(),
-    },
-  ];
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const route of routes) {
+    entries.push(
+      { url: `${base}/fr${route}`, lastModified: new Date() },
+      { url: `${base}/en${route}`, lastModified: new Date() },
+    );
+  }
+
+  return entries;
 }

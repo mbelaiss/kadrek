@@ -26,11 +26,10 @@ export default function Header() {
   const openMenu  = (name: string) => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(name); };
   const closeMenu = () => { timerRef.current = setTimeout(() => setOpen(null), 150); };
 
-  /* ── Language switcher URLs ── */
-  // Strip /en prefix in case usePathname() returns the full localized path
-  const basePath = pathname.startsWith("/en") ? pathname.slice(3) || "/" : pathname;
-  const hrefFr = basePath;
-  const hrefEn = basePath === "/" ? "/en" : `/en${basePath}`;
+  /* ── Language switcher — with localePrefix:"always", usePathname() always
+       returns the path without locale segment, making this 100% reliable ── */
+  const hrefFr = `/fr${pathname}`;
+  const hrefEn = `/en${pathname}`;
 
   const megaCols = [
     {
