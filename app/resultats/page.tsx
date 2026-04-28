@@ -3,7 +3,7 @@ import SquareButton from "@/components/SquareButton";
 
 export const metadata: Metadata = {
   title: "Résultats & ROI | Kadrek",
-  description: "Chiffres concrets, témoignages clients et retour sur investissement de la transformation digitale avec Kadrek.",
+  description: "Chiffres concrets, exemples de résultats et retour sur investissement de la transformation digitale avec Kadrek.",
 };
 
 const roiMetrics = [
@@ -15,43 +15,55 @@ const roiMetrics = [
   { value: "2 sem.", label: "pour les premiers résultats",         sub: "On livre vite, on prouve avant de scaler" },
 ];
 
-const testimonials = [
+const problemScenarios = [
   {
-    initials: "SL", name: "Sophie Laurent",   role: "CEO · Atelier Lumière (retail, 28 employés)",           stars: 5,
-    result: "2 800 € économisés le 1er mois",
-    text: "La facturation entièrement automatisée nous a économisé 2 800 € le premier mois. L'équipe est enfin concentrée sur la vente, pas sur l'administration. C'est un avant/après total.",
+    domain: "Automatisation",
+    color: "#0891b2",
+    problem: "Facturation manuelle chronophage, relances clients oubliées, aucune visibilité trésorerie en temps réel.",
+    solution: "Automatisation complète facturation + relances, dashboard trésorerie live, agent IA support client.",
+    results: ["2 800€/mois économisés", "-80% temps admin", "+22% recouvrement"],
   },
   {
-    initials: "MR", name: "Marc Renault",     role: "Directeur Opérations · TransExpress (65 employés)",    stars: 5,
-    result: "Taux d'erreur : 11% → 0,4%",
-    text: "On était sceptiques — on est une entreprise logistique traditionnelle. Six mois plus tard, notre taux d'erreur commandes est passé de 11% à 0,4%. Les clients ont arrêté d'appeler pour se plaindre.",
+    domain: "Data & Analytics",
+    color: "#2563eb",
+    problem: "Données éparpillées dans 5 outils, impossible de voir la performance globale, décisions à l'intuition.",
+    solution: "Centralisation des données, dashboard exécutif temps réel, rapports automatiques hebdomadaires.",
+    results: ["Vue complète en 30 sec", "+15% CA en 6 mois", "5 outils → 1 source"],
   },
   {
-    initials: "AK", name: "Aïcha Koné",       role: "Fondatrice · MediConsult (services de santé, 12 employés)", stars: 5,
-    result: "Vue complète en 30 secondes",
-    text: "Le dashboard me donne une vue complète de mon activité en 30 secondes chaque matin. Je prends de meilleures décisions maintenant qu'avec toute une équipe d'analystes. C'est remarquable.",
+    domain: "Présence & SEO",
+    color: "#2563eb",
+    problem: "65% de réservations via OTA (commission 18%), avis en ligne non gérés, site sans trafic organique.",
+    solution: "Refonte SEO, stratégie de réputation, site haute performance avec réservation directe.",
+    results: ["-40% dépendance OTA", "+90 avis positifs", "+200% trafic organique"],
   },
   {
-    initials: "YB", name: "Youssef Benali",   role: "DG · GroupeAtlas (distribution, 120 employés)",         stars: 5,
-    result: "+38% de conversion web",
-    text: "Après la refonte de notre parcours de commande et la mise en place du dashboard commercial, notre taux de conversion a augmenté de 38% en 3 mois. Le ROI était évident dès la 6ème semaine.",
+    domain: "Agents IA",
+    color: "#7c3aed",
+    problem: "Équipe support saturée, temps de réponse moyen de 6 heures, tickets répétitifs sans valeur ajoutée.",
+    solution: "Agent IA 24h/24 sur les canaux existants, triage automatique, escalade intelligente vers un humain.",
+    results: ["-70% tickets manuels", "Réponse < 30 sec", "Équipe focalisée sur les cas complexes"],
   },
   {
-    initials: "NC", name: "Nadia Chraibi",    role: "DRH · CabRH Plus (conseil RH, 35 employés)",            stars: 5,
-    result: "Onboarding : 3 jours → 4 heures",
-    text: "L'automatisation de notre onboarding a réduit le temps d'intégration de 3 jours à 4 heures. Les nouveaux collaborateurs sont opérationnels beaucoup plus vite et l'expérience est professionnelle.",
+    domain: "Automatisation process",
+    color: "#0891b2",
+    problem: "Onboarding collaborateurs de 3 jours, documents éparpillés, checklist oubliée à chaque arrivée.",
+    solution: "Workflow d'intégration automatisé, accès outils provisionnés automatiquement, portail onboarding.",
+    results: ["3 jours → 4 heures", "0 étape oubliée", "Expérience professionnelle dès J1"],
   },
   {
-    initials: "HM", name: "Hassan Moussaoui", role: "Fondateur · TechBuild (BTP digital, 18 employés)",      stars: 5,
-    result: "0 rapport manuel depuis 4 mois",
-    text: "Plus un seul rapport manuel depuis 4 mois. Tout est généré automatiquement et distribué aux bons destinataires. On a récupéré l'équivalent de 2 jours de travail par semaine dans l'équipe.",
+    domain: "Reporting automatisé",
+    color: "#7c3aed",
+    problem: "Rapports hebdo compilés à la main pendant 3 heures, erreurs fréquentes, distribution manuelle.",
+    solution: "Générateur de rapports automatique connecté aux sources de données, envoi planifié aux bons destinataires.",
+    results: ["0 rapport manuel", "3h → 0 min/semaine", "Données toujours à jour"],
   },
 ];
 
 const caseStudies = [
   {
     sector: "Logistique & Transport",
-    company: "TransExpress — 65 employés",
+    profile: "Entreprise de transport, ~60 employés",
     challenge: "Taux d'erreur de 11% sur les commandes, réclamations clients quotidiennes, rapports manuels chronophages.",
     solution: "Automatisation du traitement des commandes, synchronisation ERP-CRM, dashboard opérationnel temps réel.",
     results: [
@@ -63,7 +75,7 @@ const caseStudies = [
   },
   {
     sector: "Retail & Commerce",
-    company: "Atelier Lumière — 28 employés",
+    profile: "Commerce de détail, ~25 employés",
     challenge: "Facturation manuelle chronophage, relances clients oubliées, pas de visibilité sur la trésorerie en temps réel.",
     solution: "Automatisation complète de la facturation et des relances, dashboard trésorerie live, agent IA support client.",
     results: [
@@ -74,8 +86,8 @@ const caseStudies = [
     timeline: "6 semaines",
   },
   {
-    sector: "Services de Santé",
-    company: "MediConsult — 12 employés",
+    sector: "Services professionnels",
+    profile: "Cabinet de conseil, ~12 employés",
     challenge: "Données éparpillées dans 5 outils, impossible de voir la performance globale, décisions basées sur des intuitions.",
     solution: "Centralisation des données, dashboard exécutif temps réel, rapports automatiques hebdomadaires.",
     results: [
@@ -151,10 +163,10 @@ export default function ResultatsPage() {
 
           <div className="grid gap-4 lg:grid-cols-3">
             {caseStudies.map((cs) => (
-              <div key={cs.company} className="border border-slate-200 bg-white overflow-hidden">
+              <div key={cs.sector} className="border border-slate-200 bg-white overflow-hidden">
                 <div className="border-b border-slate-100 bg-slate-50 px-6 py-4">
                   <div className="mb-1 text-[11px] font-black uppercase tracking-widest text-blue-600">{cs.sector}</div>
-                  <div className="font-black text-slate-800">{cs.company}</div>
+                  <div className="font-black text-slate-800">{cs.profile}</div>
                   <div className="mt-1 text-[12px] text-slate-400">Résultats en {cs.timeline}</div>
                 </div>
                 <div className="p-6 space-y-5">
@@ -184,31 +196,41 @@ export default function ResultatsPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
+      {/* ── Problem Scenarios ── */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mb-16 border-b border-slate-100 pb-10">
-            <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Témoignages</div>
+            <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Scénarios types</div>
             <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[50px]">
-              Ce que disent nos clients
+              Des problèmes que vous reconnaissez peut-être
             </h2>
+            <p className="mt-4 max-w-xl text-lg text-slate-500">
+              Ces situations sont courantes dans les PME. Voici comment Kadrek les résout.
+            </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((t) => (
-              <div key={t.name} className="flex flex-col border border-slate-200 bg-white p-6 hover:bg-slate-50 transition-colors">
-                <div className="mb-3 inline-flex self-start items-center gap-1.5 border border-emerald-100 bg-emerald-50 px-3 py-1 text-[11px] font-black text-emerald-700">
-                  ✓ {t.result}
+            {problemScenarios.map((ps) => (
+              <div key={ps.problem} className="flex flex-col border border-slate-200 bg-white overflow-hidden">
+                <div className="px-5 py-3 text-[11px] font-black uppercase tracking-widest text-white"
+                  style={{ background: ps.color }}>
+                  {ps.domain}
                 </div>
-                <div className="mb-3 text-yellow-400 tracking-wider">{"★".repeat(t.stars)}</div>
-                <p className="flex-1 text-[14px] leading-relaxed text-slate-600 italic mb-5">&ldquo;{t.text}&rdquo;</p>
-                <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center bg-blue-600 text-xs font-black text-white">
-                    {t.initials}
+                <div className="flex flex-1 flex-col p-6 space-y-4">
+                  <div>
+                    <p className="mb-1.5 text-[10px] font-black uppercase tracking-widest text-red-400">Problème</p>
+                    <p className="text-[13px] leading-relaxed text-slate-600">{ps.problem}</p>
                   </div>
                   <div>
-                    <div className="text-[13px] font-black text-slate-800">{t.name}</div>
-                    <div className="text-[11px] text-slate-400">{t.role}</div>
+                    <p className="mb-1.5 text-[10px] font-black uppercase tracking-widest text-blue-500">Solution Kadrek</p>
+                    <p className="text-[13px] leading-relaxed text-slate-600">{ps.solution}</p>
+                  </div>
+                  <div className="mt-auto pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+                    {ps.results.map((r) => (
+                      <span key={r} className="border border-emerald-100 bg-emerald-50 px-2.5 py-1 text-[11px] font-black text-emerald-700">
+                        ✓ {r}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

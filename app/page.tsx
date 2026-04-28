@@ -25,10 +25,49 @@ const stats = [
   { value: "90j",  label: "pour voir les premiers résultats" },
 ];
 
-const testimonials = [
-  { initials: "SL", name: "Sophie Laurent",  role: "CEO · Atelier Lumière",              text: "La facturation entièrement automatisée nous a économisé 2 800 € le premier mois. L'équipe est enfin concentrée sur ce qui compte." },
-  { initials: "MR", name: "Marc Renault",    role: "Directeur Opérations · TransExpress", text: "Notre taux d'erreur est passé de 11 % à 0,4 % en 6 mois. Les clients ont arrêté d'appeler pour se plaindre." },
-  { initials: "AK", name: "Aïcha Koné",      role: "Fondatrice · MediConsult",            text: "Je vois toute mon activité en 30 secondes chaque matin. Je prends de meilleures décisions qu'avec toute une équipe d'analystes." },
+const problemSolutions = [
+  {
+    domain: "Data & Analytics",
+    color: "#2563eb",
+    problem: "Données éparpillées dans 5 outils, aucune vision globale, décisions prises à l'intuition.",
+    solution: "Dashboard centralisé temps réel, KPIs automatiques, alertes sur seuils définis.",
+    result: "Vue complète de l'activité en 30 secondes",
+  },
+  {
+    domain: "Agents IA",
+    color: "#7c3aed",
+    problem: "Support client saturé, réponses lentes, équipe épuisée par les demandes répétitives.",
+    solution: "Agent IA qui répond 24h/24, triage automatique, escalade vers un humain si nécessaire.",
+    result: "-70% de tickets traités manuellement",
+  },
+  {
+    domain: "Automatisation",
+    color: "#0891b2",
+    problem: "Facturation manuelle, relances oubliées, double saisie entre ERP et CRM.",
+    solution: "Automatisation complète des flux : facturation, relances, synchronisation des outils.",
+    result: "-80% de temps admin, zéro oubli",
+  },
+  {
+    domain: "Présence & SEO",
+    color: "#2563eb",
+    problem: "Invisible sur Google, site lent, concurrents mieux positionnés sur les requêtes clés.",
+    solution: "Refonte SEO technique, contenu optimisé, profil Google Business structuré et suivi.",
+    result: "+150% de trafic organique en 6 mois",
+  },
+  {
+    domain: "Formation IA",
+    color: "#7c3aed",
+    problem: "Équipe réticente à l'IA, outils sous-exploités, adoption bloquée faute d'accompagnement.",
+    solution: "Ateliers pratiques sur vos vrais outils et cas métier, suivi sur 90 jours.",
+    result: "80% d'adoption active après 3 mois",
+  },
+  {
+    domain: "Interfaces & Dashboards",
+    color: "#0891b2",
+    problem: "Interface interne obsolète, portail client inexistant, données inaccessibles sur mobile.",
+    solution: "Interface sur-mesure connectée à vos systèmes, accessible partout, design intuitif.",
+    result: "-50% de temps passé à chercher l'information",
+  },
 ];
 
 const process = [
@@ -203,31 +242,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ TESTIMONIALS ══ */}
+      {/* ══ PROBLÈMES / SOLUTIONS ══ */}
       <section className="py-24 bg-slate-50">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mb-14 border-b border-slate-200 pb-10">
             <div className="mb-4 inline-block bg-slate-700 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white">
-              Témoignages clients
+              Problèmes résolus
             </div>
             <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[50px]">
-              Ils l&apos;ont fait. Voici ce qu&apos;ils en disent.
+              Votre problème a probablement<br />une solution chez nous
             </h2>
           </div>
 
-          <div className="grid gap-px bg-slate-200 border border-slate-200 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <div key={t.name} className="flex flex-col bg-white p-8">
-                <div className="mb-4 text-yellow-400 tracking-wider text-sm">★★★★★</div>
-                <p className="flex-1 text-[15px] leading-relaxed text-slate-600 italic mb-6">&ldquo;{t.text}&rdquo;</p>
-                <div className="flex items-center gap-3 border-t border-slate-100 pt-5">
-                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center bg-blue-600 text-xs font-black text-white">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <div className="text-[13px] font-black text-slate-800">{t.name}</div>
-                    <div className="text-[11px] text-slate-400">{t.role}</div>
-                  </div>
+          <div className="grid gap-px bg-slate-200 border border-slate-200 md:grid-cols-2 lg:grid-cols-3">
+            {problemSolutions.map((ps) => (
+              <div key={ps.domain} className="flex flex-col bg-white p-8">
+                <div className="mb-5 inline-flex self-start items-center gap-2 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-white"
+                  style={{ background: ps.color }}>
+                  {ps.domain}
+                </div>
+                <div className="mb-4">
+                  <p className="mb-1 text-[10px] font-black uppercase tracking-widest text-red-400">Problème fréquent</p>
+                  <p className="text-[14px] leading-relaxed text-slate-600">{ps.problem}</p>
+                </div>
+                <div className="mb-4">
+                  <p className="mb-1 text-[10px] font-black uppercase tracking-widest text-blue-500">Notre réponse</p>
+                  <p className="text-[14px] leading-relaxed text-slate-600">{ps.solution}</p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-slate-100">
+                  <span className="inline-flex items-center gap-1.5 border border-emerald-100 bg-emerald-50 px-3 py-1.5 text-[12px] font-black text-emerald-700">
+                    ✓ {ps.result}
+                  </span>
                 </div>
               </div>
             ))}
@@ -236,7 +281,7 @@ export default function Home() {
           <div className="mt-10 text-center">
             <Link href="/resultats"
               className="inline-flex items-center gap-2 text-[14px] font-bold text-blue-600 hover:gap-3 transition-all">
-              Voir tous les résultats <ArrowRight className="h-4 w-4" />
+              Voir les résultats en détail <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
