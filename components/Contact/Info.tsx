@@ -1,24 +1,17 @@
 "use client";
 
-import { MapPin, Phone, Smartphone, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Clock, Globe } from "lucide-react";
 
 const infos = [
   {
     icon: MapPin,
     label: "Siège social",
-    value: "Hay Al Massira, Bloc B – DRARGA, Agadir",
+    value: "Casablanca, Maroc",
   },
   {
-    icon: Phone,
-    label: "Téléphone fixe",
-    value: "05 28 38 50 35",
-    href: "tel:+212528385035",
-  },
-  {
-    icon: Smartphone,
-    label: "Mobile",
-    value: "06 68 39 95 48",
-    href: "tel:+212668399548",
+    icon: Globe,
+    label: "Présence",
+    value: "Experts répartis dans le monde entier",
   },
   {
     icon: Mail,
@@ -28,8 +21,8 @@ const infos = [
   },
   {
     icon: Clock,
-    label: "Horaires",
-    value: "Lun – Sam : 08h00 – 18h00",
+    label: "Disponibilité",
+    value: "Lun – Sam : 08h00 – 20h00",
   },
 ];
 

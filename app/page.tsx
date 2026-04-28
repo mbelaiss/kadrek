@@ -242,6 +242,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ══ À PROPOS ══ */}
+      <section id="about" className="py-24 bg-white">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="grid items-start gap-16 lg:grid-cols-[1fr_1fr]">
+
+            <div>
+              <div className="mb-5 inline-block bg-blue-600 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white">
+                À propos de Kadrek
+              </div>
+              <h2 className="mb-6 text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-[50px]">
+                Un cabinet sans frontières, des experts partout dans le monde
+              </h2>
+              <p className="mb-5 text-lg leading-relaxed text-slate-500">
+                Kadrek est un cabinet de conseil en transformation digitale dont la politique repose sur un principe simple : les meilleures compétences ne se trouvent pas toujours au même endroit. C&apos;est pourquoi nos experts opèrent depuis plusieurs pays, sur plusieurs fuseaux horaires, pour servir nos clients sans contrainte géographique.
+              </p>
+              <p className="text-lg leading-relaxed text-slate-500">
+                Cette organisation distribuée n&apos;est pas une contrainte — c&apos;est un avantage concurrentiel. Elle nous permet de recruter les meilleurs profils mondiaux en data, IA, automatisation et développement, et de les mettre au service de votre croissance avec la réactivité d&apos;une équipe locale.
+              </p>
+            </div>
+
+            <div className="grid gap-px bg-slate-100 border border-slate-100 sm:grid-cols-2">
+              {[
+                { label: "Agilité globale",        accent: "#2563eb", desc: "Présents sur plusieurs fuseaux horaires, nous nous adaptons à votre rythme et vos urgences — sans délai." },
+                { label: "Expertise mondiale",     accent: "#7c3aed", desc: "Nous recrutons les meilleurs profils indépendamment de leur localisation. Votre projet bénéficie du meilleur talent disponible." },
+                { label: "Siège à Casablanca",     accent: "#0891b2", desc: "Notre base opérationnelle est au Maroc, carrefour stratégique entre l'Europe, l'Afrique et le monde arabe." },
+                { label: "Impact local, vision globale", accent: "#2563eb", desc: "Nous comprenons les marchés locaux et appliquons des standards internationaux. Le meilleur des deux mondes." },
+              ].map((item) => (
+                <div key={item.label} className="bg-white p-7 hover:bg-slate-50 transition-colors">
+                  <div className="mb-3 h-1 w-8" style={{ background: item.accent }} />
+                  <h3 className="mb-2 text-[15px] font-black text-slate-900">{item.label}</h3>
+                  <p className="text-[13px] leading-relaxed text-slate-500">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ══ CTA BAND ══ */}
       <section className="bg-slate-900 py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

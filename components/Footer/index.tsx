@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Globe } from "lucide-react";
 
 const solutions = [
   { name: "Data & Analytics",   href: "/services#data" },
@@ -81,11 +81,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-slate-500">
                 <MapPin className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
-                Agadir, Maroc
+                Casablanca, Maroc
               </li>
               <li className="flex items-start gap-3 text-sm text-slate-500">
-                <Phone className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
-                <span>06 68 39 95 48<br />05 28 38 50 35</span>
+                <Globe className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
+                Experts répartis dans le monde entier
               </li>
               <li className="flex items-start gap-3 text-sm text-slate-500">
                 <Mail className="mt-0.5 h-4 w-4 flex-none text-blue-500" />
@@ -101,7 +101,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Kadrek. Tous droits réservés.
           </p>
           <div className="flex gap-6 text-sm text-slate-400">
-            <span>Agadir · Maroc</span>
+            <span>Casablanca · Maroc</span>
             <span>·</span>
             <Link href="/contact" className="hover:text-blue-600 transition-colors">Nous contacter</Link>
           </div>
