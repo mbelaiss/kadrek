@@ -16,15 +16,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 const content = {
   fr: {
     stats: [
-      { value: "40%",  label: "réduction des coûts opérationnels" },
-      { value: "15h",  label: "économisées par employé / semaine" },
-      { value: "3.5×", label: "retour sur investissement moyen" },
-      { value: "90j",  label: "pour voir les premiers résultats" },
+      { value: "40%",  label: "d'économies opérationnelles mesurées" },
+      { value: "15h",  label: "récupérées par collaborateur, par semaine" },
+      { value: "3,5×", label: "retour sur investissement, en moyenne" },
+      { value: "90j",  label: "pour des résultats mesurables" },
     ],
     services: [
       { title: "Data & Analytics",        href: "/solutions/data-analytics",     desc: "Dashboards temps réel, KPI clairs, décisions basées sur des faits.", color: "#2563eb" },
-      { title: "Agents IA",               href: "/solutions/agents-ia",          desc: "Support client, triage email, rapports automatiques — 24h/24.", color: "#7c3aed" },
-      { title: "Automatisation",          href: "/solutions/automatisation",     desc: "Processus zéro friction. Factures, stocks, onboarding automatisés.", color: "#0891b2" },
+      { title: "Solutions IA",             href: "/solutions/agents-ia",          desc: "Solutions intelligentes qui amplifient les capacités de vos équipes, en continu.", color: "#7c3aed" },
+      { title: "Automatisation",          href: "/solutions/automatisation",     desc: "Opérations structurées. Facturation, stocks et onboarding automatisés.", color: "#0891b2" },
       { title: "Présence & SEO",          href: "/solutions/presence-seo",       desc: "SEO, site web haute performance, réputation en ligne.", color: "#2563eb" },
       { title: "Formation IA",            href: "/solutions/formation-ia",       desc: "Votre équipe, augmentée par l'IA. Adoption rapide, résultats durables.", color: "#7c3aed" },
       { title: "Interfaces & Dashboards", href: "/solutions/interfaces-clients", desc: "Interfaces sur-mesure. Un écran, toute votre activité.", color: "#0891b2" },
@@ -74,8 +74,8 @@ const content = {
       linkLabel: "Voir les résultats en détail",
       items: [
         { domain: "Data & Analytics", color: "#2563eb", problem: "Données éparpillées dans 5 outils, aucune vision globale, décisions prises à l'intuition.", solution: "Dashboard centralisé temps réel, KPIs automatiques, alertes sur seuils définis.", result: "Vue complète de l'activité en 30 secondes" },
-        { domain: "Agents IA", color: "#7c3aed", problem: "Support client saturé, réponses lentes, équipe épuisée par les demandes répétitives.", solution: "Agent IA qui répond 24h/24, triage automatique, escalade vers un humain si nécessaire.", result: "-70% de tickets traités manuellement" },
-        { domain: "Automatisation", color: "#0891b2", problem: "Facturation manuelle, relances oubliées, double saisie entre ERP et CRM.", solution: "Automatisation complète des flux : facturation, relances, synchronisation des outils.", result: "-80% de temps admin, zéro oubli" },
+        { domain: "Solutions IA", color: "#7c3aed", problem: "Support client débordé, délais de réponse trop longs, équipes mobilisées sur des demandes récurrentes.", solution: "Assistance IA qui traite les demandes courantes en temps réel, avec escalade intelligente vers vos équipes pour les cas complexes.", result: "-70% de tickets traités manuellement" },
+        { domain: "Automatisation", color: "#0891b2", problem: "Facturation manuelle chronophage, relances oubliées, double saisie entre ERP et CRM.", solution: "Structuration et automatisation complète des flux : facturation, relances, synchronisation des outils.", result: "-80% de temps administratif, zéro oubli" },
         { domain: "Présence & SEO", color: "#2563eb", problem: "Invisible sur Google, site lent, concurrents mieux positionnés sur les requêtes clés.", solution: "Refonte SEO technique, contenu optimisé, profil Google Business structuré et suivi.", result: "+150% de trafic organique en 6 mois" },
         { domain: "Formation IA", color: "#7c3aed", problem: "Équipe réticente à l'IA, outils sous-exploités, adoption bloquée faute d'accompagnement.", solution: "Ateliers pratiques sur vos vrais outils et cas métier, suivi sur 90 jours.", result: "80% d'adoption active après 3 mois" },
         { domain: "Interfaces & Dashboards", color: "#0891b2", problem: "Interface interne obsolète, portail client inexistant, données inaccessibles sur mobile.", solution: "Interface sur-mesure connectée à vos systèmes, accessible partout, design intuitif.", result: "-50% de temps passé à chercher l'information" },
@@ -105,14 +105,14 @@ const content = {
   en: {
     stats: [
       { value: "40%",  label: "reduction in operational costs" },
-      { value: "15h",  label: "saved per employee / week" },
+      { value: "15h",  label: "recovered per team member, per week" },
       { value: "3.5×", label: "average return on investment" },
-      { value: "90d",  label: "to see first results" },
+      { value: "90d",  label: "to measurable results" },
     ],
     services: [
       { title: "Data & Analytics",        href: "/solutions/data-analytics",     desc: "Real-time dashboards, clear KPIs, fact-based decisions.", color: "#2563eb" },
-      { title: "AI Agents",               href: "/solutions/agents-ia",          desc: "Customer support, email triage, automated reports — 24/7.", color: "#7c3aed" },
-      { title: "Automation",              href: "/solutions/automatisation",     desc: "Zero-friction processes. Invoices, stock, onboarding automated.", color: "#0891b2" },
+      { title: "AI Solutions",             href: "/solutions/agents-ia",          desc: "Intelligent solutions that extend your teams' capabilities, around the clock.", color: "#7c3aed" },
+      { title: "Automation",              href: "/solutions/automatisation",     desc: "Streamlined operations. Invoicing, stock and onboarding structured and automated.", color: "#0891b2" },
       { title: "Presence & SEO",          href: "/solutions/presence-seo",       desc: "SEO, high-performance website, online reputation.", color: "#2563eb" },
       { title: "AI Training",             href: "/solutions/formation-ia",       desc: "Your team, augmented by AI. Fast adoption, lasting results.", color: "#7c3aed" },
       { title: "Interfaces & Dashboards", href: "/solutions/interfaces-clients", desc: "Custom interfaces. One screen, your entire operation.", color: "#0891b2" },
@@ -162,8 +162,8 @@ const content = {
       linkLabel: "See detailed results",
       items: [
         { domain: "Data & Analytics", color: "#2563eb", problem: "Data scattered across 5 tools, no global view, decisions made on gut feel.", solution: "Centralised real-time dashboard, automatic KPIs, alerts on defined thresholds.", result: "Complete view of activity in 30 seconds" },
-        { domain: "AI Agents", color: "#7c3aed", problem: "Saturated customer support, slow responses, team exhausted by repetitive requests.", solution: "AI agent answering 24/7, automatic triage, intelligent escalation to a human.", result: "-70% of tickets handled manually" },
-        { domain: "Automation", color: "#0891b2", problem: "Manual invoicing, forgotten follow-ups, double data entry between ERP and CRM.", solution: "Full flow automation: invoicing, reminders, tool synchronisation.", result: "-80% admin time, zero missed tasks" },
+        { domain: "AI Solutions", color: "#7c3aed", problem: "Overloaded support team, slow response times, staff tied up handling recurring requests.", solution: "AI assistance that handles routine requests in real time, with intelligent escalation to your team for complex cases.", result: "-70% of tickets handled manually" },
+        { domain: "Automation", color: "#0891b2", problem: "Time-consuming manual invoicing, forgotten follow-ups, double data entry between ERP and CRM.", solution: "Full structuring and automation of flows: invoicing, reminders, tool synchronisation.", result: "-80% admin time, zero missed tasks" },
         { domain: "Presence & SEO", color: "#2563eb", problem: "Invisible on Google, slow site, competitors better ranked on key searches.", solution: "Technical SEO overhaul, optimised content, structured and tracked Google Business profile.", result: "+150% organic traffic in 6 months" },
         { domain: "AI Training", color: "#7c3aed", problem: "Team resistant to AI, tools under-used, adoption stalled for lack of support.", solution: "Hands-on workshops on your real tools and use cases, 90-day follow-up.", result: "80% active adoption after 3 months" },
         { domain: "Interfaces & Dashboards", color: "#0891b2", problem: "Outdated internal interface, no client portal, data inaccessible on mobile.", solution: "Custom interface connected to your systems, accessible anywhere, intuitive design.", result: "-50% time spent searching for information" },

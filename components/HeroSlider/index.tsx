@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, MessageSquare, Mail, BarChart2, Bell, Inbox, RefreshCw, FileText, Database } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/navigation";
 
@@ -10,37 +10,37 @@ const slidesData = {
     {
       eyebrow: "Transformation Digitale",
       title: "Transformez vos données en croissance mesurable",
-      subtitle: "Kadrek conçoit des systèmes digitaux qui automatisent vos opérations, exploitent vos données et déploient l'IA au cœur de votre activité.",
+      subtitle: "Kadrek conçoit des systèmes digitaux qui structurent vos opérations, exploitent votre data et intègrent l'intelligence artificielle au cœur de votre activité.",
       cta1: { label: "Démarrer maintenant", href: "/contact" },
       cta2: { label: "Découvrir la méthode", href: "/digitalisation" },
       stats: [
-        { value: "40%", label: "réduction des coûts" },
-        { value: "3×",  label: "décisions plus rapides" },
-        { value: "90j", label: "pour voir les résultats" },
+        { value: "40%", label: "de réduction des coûts opérationnels" },
+        { value: "3×",  label: "de rapidité dans vos décisions" },
+        { value: "90j", label: "pour des résultats mesurables" },
       ],
     },
     {
       eyebrow: "Intelligence Artificielle",
-      title: "L'IA qui travaille pour vous 24 heures sur 24",
-      subtitle: "Déployez des agents IA qui répondent à vos clients, trient vos emails, génèrent vos rapports et détectent les anomalies — sans intervention humaine.",
-      cta1: { label: "Explorer les agents IA", href: "/solutions/agents-ia" },
+      title: "L'intelligence artificielle qui renforce chaque équipe",
+      subtitle: "Des solutions intelligentes qui prennent en charge les flux récurrents et libèrent vos collaborateurs pour ce qui exige leur expertise et leur jugement.",
+      cta1: { label: "Explorer les solutions IA", href: "/solutions/agents-ia" },
       cta2: { label: "Voir les résultats", href: "/resultats" },
       stats: [
-        { value: "80%", label: "des requêtes résolues auto" },
-        { value: "15h", label: "économisées par semaine" },
+        { value: "80%", label: "des demandes traitées automatiquement" },
+        { value: "15h", label: "récupérées par collaborateur par semaine" },
         { value: "-90%", label: "d'erreurs de saisie" },
       ],
     },
     {
-      eyebrow: "Automatisation & ROI",
-      title: "Arrêtez de payer pour ce que les machines font mieux",
-      subtitle: "Automatisez la facturation, les commandes, les rapports et le support. Chaque processus automatisé libère du temps pour ce qui génère vraiment de la valeur.",
+      eyebrow: "Automatisation & Performance",
+      title: "Libérez vos équipes. Accélérez votre croissance.",
+      subtitle: "Automatisez les flux administratifs, les rapports et le suivi opérationnel. Vos collaborateurs concentrent leur énergie là où elle crée le plus de valeur.",
       cta1: { label: "Voir l'automatisation", href: "/solutions/automatisation" },
-      cta2: { label: "Calculer mon ROI", href: "/resultats" },
+      cta2: { label: "Mesurer le ROI", href: "/resultats" },
       stats: [
-        { value: "3.5×", label: "retour sur investissement" },
-        { value: "2 400€", label: "économisés/mois en moyenne" },
-        { value: "2 sem", label: "premiers résultats" },
+        { value: "3,5×", label: "retour sur investissement moyen" },
+        { value: "2 400 €", label: "d'économies mensuelles en moyenne" },
+        { value: "2 sem.", label: "pour les premiers résultats" },
       ],
     },
   ],
@@ -48,35 +48,35 @@ const slidesData = {
     {
       eyebrow: "Digital Transformation",
       title: "Turn your data into measurable growth",
-      subtitle: "Kadrek builds digital systems that automate your operations, leverage your data and deploy AI at the heart of your business.",
+      subtitle: "Kadrek builds digital systems that structure your operations, leverage your data and integrate artificial intelligence at the core of your business.",
       cta1: { label: "Get started", href: "/contact" },
       cta2: { label: "Discover the method", href: "/digitalisation" },
       stats: [
-        { value: "40%", label: "cost reduction" },
+        { value: "40%", label: "reduction in operational costs" },
         { value: "3×",  label: "faster decisions" },
-        { value: "90d", label: "to see results" },
+        { value: "90d", label: "to measurable results" },
       ],
     },
     {
       eyebrow: "Artificial Intelligence",
-      title: "AI that works for you around the clock",
-      subtitle: "Deploy AI agents that respond to your clients, sort your emails, generate your reports and detect anomalies — without human intervention.",
-      cta1: { label: "Explore AI agents", href: "/solutions/agents-ia" },
+      title: "Artificial intelligence that strengthens every team",
+      subtitle: "Intelligent solutions that handle recurring workflows, freeing your teams to focus on what requires their expertise and judgement.",
+      cta1: { label: "Explore AI solutions", href: "/solutions/agents-ia" },
       cta2: { label: "See results", href: "/resultats" },
       stats: [
-        { value: "80%", label: "of queries resolved automatically" },
-        { value: "15h", label: "saved per week" },
-        { value: "-90%", label: "data entry errors" },
+        { value: "80%", label: "of requests handled automatically" },
+        { value: "15h", label: "recovered per team member per week" },
+        { value: "-90%", label: "data-entry errors" },
       ],
     },
     {
-      eyebrow: "Automation & ROI",
-      title: "Stop paying for what machines do better",
-      subtitle: "Automate invoicing, orders, reports and support. Every automated process frees up time for what truly drives growth.",
+      eyebrow: "Automation & Performance",
+      title: "Free your teams. Accelerate your growth.",
+      subtitle: "Automate administrative flows, reports and operational tracking. Your teams direct their energy to where it creates the most value.",
       cta1: { label: "See automation", href: "/solutions/automatisation" },
-      cta2: { label: "Calculate my ROI", href: "/resultats" },
+      cta2: { label: "Measure ROI", href: "/resultats" },
       stats: [
-        { value: "3.5×", label: "return on investment" },
+        { value: "3.5×", label: "average return on investment" },
         { value: "€2,400", label: "saved per month on average" },
         { value: "2 wks", label: "to first results" },
       ],
@@ -120,23 +120,25 @@ const visuals = [
         </div>
         <div className="flex items-center gap-2 border-t border-slate-100 px-4 py-2.5">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[11px] font-semibold text-slate-400">↑ +18% this month · updated just now</span>
+          <span className="text-[11px] font-semibold text-slate-400">+18% this month · updated just now</span>
         </div>
       </div>
     </div>
   ),
-  /* AI agents visual */
+  /* AI solutions visual */
   (
     <div className="relative space-y-3">
       <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-purple-400/10 to-blue-300/10 blur-3xl" />
       {[
-        { icon: "💬", t: "AI Support Agent",     d: "Handles 80% of requests", s: "Active 24/7",           c: "bg-blue-50 border-blue-100" },
-        { icon: "📧", t: "Email Triage AI",       d: "200 emails sorted in 3s", s: "Processed just now",  c: "bg-purple-50 border-purple-100" },
-        { icon: "📊", t: "Auto Report",           d: "Generated every Mon 8am", s: "Sent · 12 recipients", c: "bg-cyan-50 border-cyan-100" },
-        { icon: "🔔", t: "Anomaly Alert",         d: "Stock threshold reached", s: "Notified 2 min ago",   c: "bg-amber-50 border-amber-100" },
+        { Icon: MessageSquare, t: "Support client IA",   d: "Traite 80 % des demandes entrantes",  s: "Actif en continu",      c: "bg-blue-50 border-blue-100",   ic: "text-blue-500" },
+        { Icon: Mail,          t: "Tri des communications", d: "200 messages classés en 3 secondes", s: "Traité à l'instant",   c: "bg-purple-50 border-purple-100", ic: "text-purple-500" },
+        { Icon: BarChart2,     t: "Rapports automatiques", d: "Générés chaque lundi à 8h00",         s: "Envoyé · 12 destinataires", c: "bg-cyan-50 border-cyan-100", ic: "text-cyan-600" },
+        { Icon: Bell,          t: "Détection d'anomalies", d: "Seuil de stock critique atteint",     s: "Notifié il y a 2 min", c: "bg-amber-50 border-amber-100", ic: "text-amber-500" },
       ].map((item) => (
         <div key={item.t} className={`relative flex items-center gap-4 rounded-xl border ${item.c} bg-white p-4 shadow-sm`}>
-          <span className="text-2xl">{item.icon}</span>
+          <div className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white shadow-sm ${item.ic}`}>
+            <item.Icon className="h-4 w-4" strokeWidth={1.8} />
+          </div>
           <div className="flex-1 min-w-0">
             <div className="text-sm font-bold text-slate-800">{item.t}</div>
             <div className="text-xs text-slate-500">{item.d}</div>
@@ -153,28 +155,29 @@ const visuals = [
     <div className="relative">
       <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-cyan-400/10 to-blue-300/10 blur-3xl" />
       <div className="relative rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_20px_60px_rgba(6,182,212,.1)]">
-        <div className="mb-4 text-sm font-black text-slate-700">⚙️ Active automation flow</div>
+        <div className="mb-4 text-sm font-black text-slate-700">Flux d&apos;automatisation actif</div>
         <div className="space-y-2">
           {[
-            ["📥", "Order received",   "Trigger",     "bg-blue-50 text-blue-700",     "✓"],
-            ["🔄", "Stock updated",    "Processing",  "bg-slate-50 text-slate-600",   "✓"],
-            ["📧", "Email confirmed",  "Notification","bg-cyan-50 text-cyan-700",     "✓"],
-            ["🧾", "Invoice created",  "Generation",  "bg-purple-50 text-purple-700", "✓"],
-            ["📊", "Dashboard logged", "Recording",   "bg-emerald-50 text-emerald-700","●"],
-          ].map(([icon, label, step, c, status], i) => (
+            { Icon: Inbox,      label: "Commande reçue",   step: "Déclencheur",   c: "bg-blue-50 text-blue-700",     status: "✓" },
+            { Icon: RefreshCw,  label: "Stock mis à jour",  step: "Traitement",   c: "bg-slate-50 text-slate-600",   status: "✓" },
+            { Icon: Mail,       label: "Email confirmé",    step: "Notification", c: "bg-cyan-50 text-cyan-700",     status: "✓" },
+            { Icon: FileText,   label: "Facture générée",   step: "Génération",   c: "bg-purple-50 text-purple-700", status: "✓" },
+            { Icon: Database,   label: "Dashboard mis à jour", step: "Enregistrement", c: "bg-emerald-50 text-emerald-700", status: "●" },
+          ].map(({ Icon, label, step, c, status }) => (
             <div key={label} className="flex items-center gap-3">
-              <span className="text-lg">{icon}</span>
+              <div className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg ${c}`}>
+                <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+              </div>
               <div className={`flex-1 rounded-lg px-3 py-2 flex items-center justify-between ${c}`}>
                 <span className="text-[12px] font-bold">{label}</span>
                 <span className="text-[10px] font-semibold opacity-60">{step}</span>
               </div>
-              <span className={`text-[12px] font-black ${status === "✓" ? "text-emerald-500" : "text-amber-400"}`}>{status}</span>
-              {i < 4 && <span className="absolute ml-4 mt-8 text-slate-300 text-[10px]">↓</span>}
+              <span className={`text-[12px] font-black w-4 text-center ${status === "✓" ? "text-emerald-500" : "text-amber-400"}`}>{status}</span>
             </div>
           ))}
         </div>
         <div className="mt-4 rounded-xl bg-gradient-to-r from-blue-50 to-cyan-50 p-3 text-center">
-          <div className="text-[11px] font-bold text-slate-600">⏱ Total time: <span className="text-blue-600">2.3 seconds</span> · Zero human intervention</div>
+          <div className="text-[11px] font-bold text-slate-600">Temps total : <span className="text-blue-600">2,3 secondes</span> · Aucune ressaisie manuelle</div>
         </div>
       </div>
     </div>
@@ -245,7 +248,7 @@ export default function HeroSlider() {
             </div>
           </div>
 
-          <div key={`v-${current}`} className="hidden animate-fadeInDown lg:block">
+          <div key={`v-${current}`} className="hidden animate-fadeInUp lg:block">
             {visuals[current]}
           </div>
         </div>
@@ -275,10 +278,6 @@ export default function HeroSlider() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes heroProgress { from { width: 0% } to { width: 100% } }
-      `}</style>
     </section>
   );
 }

@@ -137,7 +137,7 @@ function VisualGestion() {
               <span className="text-[10px] font-black text-white/30">{r.id}</span>
               <span className="text-[12px] font-black text-white">{r.name}</span>
             </div>
-            <div className="mt-0.5 text-[11px] text-white/40">👤 {r.tech}</div>
+            <div className="mt-0.5 text-[11px] text-white/40">{r.tech}</div>
           </div>
           <span className="flex-shrink-0 px-2.5 py-1 text-[10px] font-bold" style={{ color: r.color, background: `${r.color}20` }}>{r.status}</span>
         </div>
@@ -231,13 +231,13 @@ function VisualPortail() {
 
 function VisualWorkflow() {
   const steps = [
-    { icon:"📬", label:"Demande", color:"#2563eb" },
-    { icon:"📋", label:"Devis",   color:"#3b82f6" },
-    { icon:"✍️", label:"Signature",color:"#7c3aed" },
-    { icon:"🗓️", label:"Planning",color:"#8b5cf6" },
-    { icon:"🔧", label:"Intervention",color:"#0891b2" },
-    { icon:"📡", label:"Suivi",   color:"#06b6d4" },
-    { icon:"🧾", label:"Facture", color:"#10b981" },
+    { num:"01", label:"Demande",      color:"#2563eb" },
+    { num:"02", label:"Devis",        color:"#3b82f6" },
+    { num:"03", label:"Signature",    color:"#7c3aed" },
+    { num:"04", label:"Planning",     color:"#8b5cf6" },
+    { num:"05", label:"Intervention", color:"#0891b2" },
+    { num:"06", label:"Suivi",        color:"#06b6d4" },
+    { num:"07", label:"Facture",      color:"#10b981" },
   ];
   return (
     <div className="space-y-3">
@@ -249,13 +249,13 @@ function VisualWorkflow() {
           <div className="space-y-3">
             {steps.map((s, i) => (
               <div key={s.label} className="flex items-center gap-4 pl-2">
-                <div className="relative z-10 flex h-8 w-8 flex-shrink-0 items-center justify-center text-base" style={{ background: `${s.color}20` }}>
-                  {s.icon}
+                <div className="relative z-10 flex h-8 w-8 flex-shrink-0 items-center justify-center text-[10px] font-black text-white" style={{ background: s.color }}>
+                  {s.num}
                 </div>
                 <div className="flex flex-1 items-center justify-between">
                   <span className={`text-[12px] font-semibold ${i < 4 ? "text-white" : i === 4 ? "text-blue-400" : "text-white/30"}`}>{s.label}</span>
                   {i < 4 ? (
-                    <span className="text-[10px] font-bold text-emerald-400">✓ Complété</span>
+                    <span className="text-[10px] font-bold text-emerald-400">Complété</span>
                   ) : i === 4 ? (
                     <span className="flex items-center gap-1 text-[10px] font-bold text-blue-400"><span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />En cours</span>
                   ) : (
@@ -269,7 +269,7 @@ function VisualWorkflow() {
       </div>
       {/* Time saved */}
       <div className="grid grid-cols-2 gap-3">
-        {[["< 4h","Délai de signature","#10b981"],["-87%","Appels 'où en est…'","#2563eb"]].map(([v,l,c]) => (
+        {[["< 4h","Délai de signature","#10b981"],["-87%","Appels de suivi évités","#2563eb"]].map(([v,l,c]) => (
           <div key={l as string} className="border border-white/10 bg-white/5 p-4 text-center">
             <div className="text-2xl font-black" style={{ color: c as string }}>{v}</div>
             <div className="mt-1 text-[10px] text-white/30">{l}</div>

@@ -205,6 +205,11 @@
 }
 
 /* ── Slider animations ── */
+@keyframes heroProgress {
+  from { width: 0% }
+  to   { width: 100% }
+}
+
 @keyframes serviceProgress {
   from { width: 0% }
   to   { width: 100% }

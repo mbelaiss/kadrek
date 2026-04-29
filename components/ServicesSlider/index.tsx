@@ -57,10 +57,10 @@ const services = [
     id: "ia",
     num: "02",
     eyebrow: "Agents IA",
-    title: "Une IA qui travaille pour vous 24h/24, 7j/7",
-    desc: "Les agents IA gèrent les tâches répétitives à votre place : répondre aux clients, trier les emails, générer des rapports, détecter les anomalies. Vos équipes se concentrent sur ce qui crée vraiment de la valeur.",
+    title: "L'intelligence artificielle au service de vos équipes",
+    desc: "Les solutions IA de Kadrek prennent en charge les flux récurrents — traitement des demandes, tri des communications, génération de rapports, détection d'anomalies — afin que vos collaborateurs se consacrent à ce qui exige leur expertise.",
     benefits: [
-      "Chatbot IA — 80% des requêtes résolues instantanément",
+      "80 % des demandes traitées automatiquement, sans délai d'attente",
       "Triage automatique des emails avec réponses suggérées",
       "Génération de rapports en quelques secondes",
       "Détection d'anomalies en temps réel (fraude, ruptures)",
@@ -72,10 +72,10 @@ const services = [
     visual: (_accent: string) => (
       <div className="space-y-3">
         {[
-          { t: "Agent Support Client",  d: "Répond à 80% des requêtes",       s: "Actif 24h/24",        c: "border-blue-100 bg-blue-50" },
-          { t: "Triage Email IA",       d: "200 emails classés en 3 sec",     s: "Traité à l'instant",  c: "border-purple-100 bg-purple-50" },
-          { t: "Rapport Automatique",   d: "Généré chaque lundi 8h00",        s: "Envoyé · 12 dest.",   c: "border-cyan-100 bg-cyan-50" },
-          { t: "Alerte Anomalie",       d: "Stock seuil critique atteint",    s: "Notifié il y a 2 min",c: "border-amber-100 bg-amber-50" },
+          { t: "Support client IA",     d: "80 % des demandes traitées",      s: "Actif en continu",    c: "border-blue-100 bg-blue-50" },
+          { t: "Tri des communications",d: "200 messages classés en 3 sec",  s: "Traité à l'instant",  c: "border-purple-100 bg-purple-50" },
+          { t: "Rapports automatiques", d: "Générés chaque lundi à 8h00",    s: "Envoyé · 12 dest.",   c: "border-cyan-100 bg-cyan-50" },
+          { t: "Détection d'anomalies", d: "Seuil de stock critique atteint", s: "Notifié il y a 2 min",c: "border-amber-100 bg-amber-50" },
         ].map((item) => (
           <div key={item.t} className={`flex items-center gap-4 border ${item.c} bg-white p-4`}>
             <div className="flex-1 min-w-0">
@@ -95,8 +95,8 @@ const services = [
     id: "automatisation",
     num: "03",
     eyebrow: "Automatisation",
-    title: "Supprimez les tâches répétitives une bonne fois pour toutes",
-    desc: "Facturation, onboarding, commandes, relances, conformité — chaque processus manuel est un coût caché. On les automatise pour que votre équipe arrête de faire ce que les machines font mieux.",
+    title: "Libérez vos collaborateurs des contraintes opérationnelles",
+    desc: "Facturation, onboarding, commandes, relances, conformité — chaque processus manuel est un coût invisible. Kadrek les structure et les automatise pour que vos équipes concentrent leur énergie là où elle crée de la valeur.",
     benefits: [
       "Facturation et relances clients automatiques",
       "Onboarding employés — contrat, accès, formation planifiés",
@@ -129,7 +129,7 @@ const services = [
           ))}
         </div>
         <div className="mt-4 bg-slate-50 p-3 text-center">
-          <div className="text-[11px] font-bold text-slate-600">Durée totale : <span style={{ color: accent }}>2.3 secondes</span> · Zéro intervention humaine</div>
+          <div className="text-[11px] font-bold text-slate-600">Durée totale : <span style={{ color: accent }}>2,3 secondes</span> · Aucune ressaisie manuelle</div>
         </div>
       </div>
     ),

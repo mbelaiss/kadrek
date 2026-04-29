@@ -5,8 +5,8 @@ import type { Locale } from "@/routing";
 const content = {
   fr: {
     badge: "Nos Solutions",
-    title: "Six expertises pour une entreprise plus performante",
-    subtitle: "Data, IA, automatisation, présence digitale, formation et interfaces sur-mesure — chaque brique rend votre organisation plus rapide et plus rentable.",
+    title: "Six expertises pour une organisation à la hauteur de vos ambitions",
+    subtitle: "Data, intelligence artificielle, automatisation, présence digitale, formation et interfaces sur-mesure — chaque domaine renforce durablement votre organisation.",
     ctaBadge: "Prochaine étape",
     ctaTitle: "Quelle solution vous correspond ?",
     ctaText: "En 45 minutes, on identifie exactement ce dont votre entreprise a besoin et on vous donne un plan d'action chiffré.",
@@ -14,8 +14,8 @@ const content = {
   },
   en: {
     badge: "Our Solutions",
-    title: "Six areas of expertise for a higher-performing business",
-    subtitle: "Data, AI, automation, digital presence, training and custom interfaces — every building block makes your organisation faster and more profitable.",
+    title: "Six areas of expertise for an organisation that matches your ambitions",
+    subtitle: "Data, artificial intelligence, automation, digital presence, training and custom interfaces — each domain strengthens your organisation durably.",
     ctaBadge: "Next step",
     ctaTitle: "Which solution is right for you?",
     ctaText: "In 45 minutes, we pinpoint exactly what your business needs and give you a costed action plan.",
