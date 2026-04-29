@@ -347,8 +347,7 @@ export default function PlatformSlider() {
         </div>
 
         {/* ── Slide content ── */}
-        <div key={current} className="grid items-start gap-12 lg:grid-cols-[1fr_520px]"
-          style={{ animation: "fadeInUp 0.4s ease-out" }}>
+        <div key={current} className="animate-fadeInUp grid items-start gap-12 lg:grid-cols-[1fr_520px]">
 
           {/* Left — text */}
           <div className="flex flex-col justify-center">
@@ -398,16 +397,6 @@ export default function PlatformSlider() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes platformProgress {
-          from { width: 0% }
-          to   { width: 100% }
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </section>
   );
 }

@@ -473,12 +473,6 @@ export default function ServicesSlider() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes serviceProgress {
-          from { width: 0% }
-          to   { width: 100% }
-        }
-      `}</style>
     </section>
   );
 }
