@@ -18,16 +18,62 @@ export interface SolutionHeroSliderProps {
   gains:    Gain[];
   benefits: Benefit[];
   problem:  Problem;
+  locale?:  string;
 }
+
+const T = {
+  fr: {
+    tags:            ["Présentation", "Résultats", "Le problème"],
+    featuresLabel:   "Fonctionnalités incluses",
+    moreFeatures:    (n: number) => `+ ${n} fonctionnalité${n > 1 ? "s" : ""} supplémentaire${n > 1 ? "s" : ""}`,
+    impactBadge:     "Impact mesurable",
+    impactTitle:     "L’impact avant / après en chiffres",
+    impactDesc:      "Chaque résultat ci-contre a été mesuré chez de vraies entreprises. On commence par l’audit pour établir votre baseline.",
+    roiBtn:          "Calculer mon ROI",
+    casesBtn:        "Voir les études de cas",
+    gainsLabel:      "Gains de performance",
+    problemBadge:    "Vous reconnaissez-vous ?",
+    solveBtn:        "Résoudre ce problème",
+    howBtn:          "Voir comment",
+    symptomsLabel:   "Symptômes fréquents",
+    kadrekSolves:    "Kadrek résout chacun de ces points",
+    diagBtn:         "Demander un diagnostic",
+    useCasesBtn:     "Voir les cas d’usage",
+    home:            "Accueil",
+    solutions:       "Solutions",
+  },
+  en: {
+    tags:            ["Overview", "Results", "The problem"],
+    featuresLabel:   "Included features",
+    moreFeatures:    (n: number) => `+ ${n} additional feature${n > 1 ? "s" : ""}`,
+    impactBadge:     "Measurable impact",
+    impactTitle:     "Before / after impact in numbers",
+    impactDesc:      "Every result shown has been measured at real businesses. We start with an audit to establish your baseline.",
+    roiBtn:          "Calculate my ROI",
+    casesBtn:        "View case studies",
+    gainsLabel:      "Performance gains",
+    problemBadge:    "Do you recognise yourself?",
+    solveBtn:        "Solve this problem",
+    howBtn:          "See how",
+    symptomsLabel:   "Common symptoms",
+    kadrekSolves:    "Kadrek addresses every one of these points",
+    diagBtn:         "Request a diagnostic",
+    useCasesBtn:     "View use cases",
+    home:            "Home",
+    solutions:       "Solutions",
+  },
+};
 
 export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
   const [slide,  setSlide]  = useState(0);
   const [paused, setPaused] = useState(false);
 
+  const t = p.locale === "en" ? T.en : T.fr;
+
   const slides = [
     /* ── 1. Overview ── */
     {
-      tag: "Présentation",
+      tag: t.tags[0],
       left: (
         <div>
           <div className="mb-5 inline-block px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white"
@@ -39,15 +85,15 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
           </h1>
           <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">{p.subtitle}</p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <SquareButton href="/contact" accent={p.accent}>Demander un diagnostic</SquareButton>
-            <SquareButton href="#use-cases" accent="#64748b">Voir les cas d&apos;usage</SquareButton>
+            <SquareButton href="/contact" accent={p.accent}>{t.diagBtn}</SquareButton>
+            <SquareButton href="#use-cases" accent="#64748b">{t.useCasesBtn}</SquareButton>
           </div>
         </div>
       ),
       right: (
         <div className="border border-slate-200 bg-white overflow-hidden">
           <div className="border-b border-slate-100 px-6 py-4" style={{ borderLeftWidth: 4, borderLeftColor: p.accent }}>
-            <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Fonctionnalités incluses</div>
+            <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">{t.featuresLabel}</div>
           </div>
           <ul className="divide-y divide-slate-100">
             {p.features.slice(0, 5).map((f) => (
@@ -61,7 +107,7 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
             ))}
           </ul>
           <div className="border-t border-slate-100 px-6 py-3 text-[12px] font-semibold text-slate-400">
-            + {Math.max(0, p.features.length - 5)} fonctionnalités supplémentaires
+            {t.moreFeatures(Math.max(0, p.features.length - 5))}
           </div>
         </div>
       ),
@@ -69,29 +115,29 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
 
     /* ── 2. Gains ── */
     {
-      tag: "Résultats",
+      tag: t.tags[1],
       left: (
         <div>
           <div className="mb-5 inline-block px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white"
             style={{ background: p.accent }}>
-            Impact mesurable
+            {t.impactBadge}
           </div>
           <h2 className="mb-6 text-5xl font-black leading-[1.06] tracking-tight text-slate-900 lg:text-[58px]">
-            L&apos;impact avant&nbsp;/ après en chiffres
+            {t.impactTitle}
           </h2>
           <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">
-            Chaque résultat ci-contre a été mesuré chez de vraies entreprises. On commence par l&apos;audit pour établir votre baseline.
+            {t.impactDesc}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <SquareButton href="/contact" accent={p.accent}>Calculer mon ROI</SquareButton>
-            <SquareButton href="/resultats" accent="#64748b">Voir les études de cas</SquareButton>
+            <SquareButton href="/contact" accent={p.accent}>{t.roiBtn}</SquareButton>
+            <SquareButton href="/resultats" accent="#64748b">{t.casesBtn}</SquareButton>
           </div>
         </div>
       ),
       right: (
         <div className="border border-slate-200 bg-white overflow-hidden">
           <div className="border-b border-slate-100 px-6 py-4" style={{ borderLeftWidth: 4, borderLeftColor: p.accent }}>
-            <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Gains de performance</div>
+            <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">{t.gainsLabel}</div>
           </div>
           <div className="divide-y divide-slate-100">
             {p.gains.slice(0, 4).map((g) => (
@@ -115,26 +161,26 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
 
     /* ── 3. Problem ── */
     {
-      tag: "Le problème",
+      tag: t.tags[2],
       left: (
         <div>
           <div className="mb-5 inline-block bg-red-500 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white">
-            Vous reconnaissez-vous ?
+            {t.problemBadge}
           </div>
           <h2 className="mb-6 text-5xl font-black leading-[1.06] tracking-tight text-slate-900 lg:text-[58px]">
             {p.problem.title}
           </h2>
           <p className="mb-10 max-w-xl text-xl leading-relaxed text-slate-500">{p.problem.intro}</p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <SquareButton href="/contact" accent={p.accent}>Résoudre ce problème</SquareButton>
-            <SquareButton href="#use-cases" accent="#64748b">Voir comment</SquareButton>
+            <SquareButton href="/contact" accent={p.accent}>{t.solveBtn}</SquareButton>
+            <SquareButton href="#use-cases" accent="#64748b">{t.howBtn}</SquareButton>
           </div>
         </div>
       ),
       right: (
         <div className="border border-slate-200 bg-white overflow-hidden">
           <div className="border-b border-slate-100 bg-red-50 px-6 py-4" style={{ borderLeftWidth: 4, borderLeftColor: "#ef4444" }}>
-            <div className="text-[11px] font-semibold uppercase tracking-widest text-red-400">Symptômes fréquents</div>
+            <div className="text-[11px] font-semibold uppercase tracking-widest text-red-400">{t.symptomsLabel}</div>
           </div>
           <div className="divide-y divide-slate-100">
             {p.problem.points.slice(0, 5).map((point, i) => (
@@ -147,7 +193,7 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
           <div className="border-t border-slate-100 bg-slate-50 px-6 py-3">
             <div className="flex items-center gap-2 text-[12px] font-semibold" style={{ color: p.accent }}>
               <CheckCircle2 className="h-4 w-4" />
-              Kadrek résout chacun de ces points
+              {t.kadrekSolves}
             </div>
           </div>
         </div>
@@ -160,8 +206,8 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(next, 6000);
-    return () => clearInterval(t);
+    const tm = setInterval(next, 6000);
+    return () => clearInterval(tm);
   }, [paused, next]);
 
   const current = slides[slide];
@@ -183,11 +229,10 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
 
         {/* Breadcrumb + tab nav */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[13px] text-slate-400">
-            <a href="/" className="hover:text-slate-600 transition-colors">Accueil</a>
+            <a href="/" className="hover:text-slate-600 transition-colors">{t.home}</a>
             <span className="text-slate-200">/</span>
-            <a href="/services" className="hover:text-slate-600 transition-colors">Solutions</a>
+            <a href="/services" className="hover:text-slate-600 transition-colors">{t.solutions}</a>
             <span className="text-slate-200">/</span>
             <span className="font-medium text-slate-600">{p.eyebrow}</span>
           </nav>
@@ -246,13 +291,6 @@ export default function SolutionHeroSlider(p: SolutionHeroSliderProps) {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes solutionProgress {
-          from { width: 0% }
-          to   { width: 100% }
-        }
-      `}</style>
     </section>
   );
 }

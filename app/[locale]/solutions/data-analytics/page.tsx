@@ -53,7 +53,7 @@ const content = {
     ],
     cta: { title: "Voyez votre activité en temps réel dès cette semaine", subtitle: "Un diagnostic data pour identifier vos sources, vos KPIs prioritaires et vous montrer ce qu'un dashboard peut changer concrètement." },
     relatedSolutions: [
-      { icon: "🤖", title: "Agents IA", href: "/solutions/agents-ia" },
+      { icon: "🤖", title: "Solutions IA", href: "/solutions/agents-ia" },
       { icon: "⚙️", title: "Automatisation", href: "/solutions/automatisation" },
       { icon: "💻", title: "Interfaces clients", href: "/solutions/interfaces-clients" },
     ],
@@ -109,7 +109,7 @@ const content = {
     ],
     cta: { title: "See your business in real time this week", subtitle: "A data diagnostic to identify your sources, your top KPIs and show you exactly what a dashboard can change." },
     relatedSolutions: [
-      { icon: "🤖", title: "AI Agents", href: "/solutions/agents-ia" },
+      { icon: "🤖", title: "AI Solutions", href: "/solutions/agents-ia" },
       { icon: "⚙️", title: "Automation", href: "/solutions/automatisation" },
       { icon: "💻", title: "Client interfaces", href: "/solutions/interfaces-clients" },
     ],
@@ -140,6 +140,7 @@ export default async function DataAnalyticsPage({ params }: { params: Promise<{ 
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }

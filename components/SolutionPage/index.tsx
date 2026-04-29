@@ -1,5 +1,5 @@
 import { Link } from "@/navigation";
-import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import SquareButton from "@/components/SquareButton";
 import BenefitsSlider from "@/components/BenefitsSlider";
 import SolutionHeroSlider from "@/components/SolutionHeroSlider";
@@ -19,9 +19,52 @@ export interface SolutionPageProps {
   gains:      { label: string; before: string; after: string; delta: string }[];
   cta:        { title: string; subtitle: string };
   relatedSolutions: { icon: string; img?: string; title: string; href: string }[];
+  locale?:    string;
 }
 
-/* Microsoft-style tile — solid accent background, centered image or cross mark */
+const T = {
+  fr: {
+    problemLabel:     "Le problème",
+    benefitsLabel:    "Les bénéfices",
+    benefitsTitle:    "Ce que vous gagnez concrètement",
+    benefitsHint:     (n: number) => `${n} bénéfice${n > 1 ? "s" : ""} · utilisez les flèches pour naviguer`,
+    useCasesLabel:    "Cas d'usage concrets",
+    useCasesTitle:    "Comment nos clients l'utilisent",
+    useCasesDesc:     "Des scénarios réels, des problèmes identifiables, des résultats mesurables.",
+    colLabels:        ["Problème", "Solution", "Résultat"],
+    featuresLabel:    "Fonctionnalités",
+    featuresTitle:    "Ce qui est inclus dans la solution",
+    featuresDesc:     "Chaque fonctionnalité répond à un problème concret dans votre quotidien opérationnel.",
+    featuresBtn:      "Discuter de mon projet",
+    gainsLabel:       "Gains de performance",
+    gainsTitle:       "L'impact avant / après en chiffres",
+    ctaLabel:         "Prochaine étape",
+    startBtn:         "Démarrer maintenant",
+    allSolBtn:        "Toutes les solutions",
+    relatedLabel:     "Solutions complémentaires",
+  },
+  en: {
+    problemLabel:     "The problem",
+    benefitsLabel:    "Benefits",
+    benefitsTitle:    "What you gain concretely",
+    benefitsHint:     (n: number) => `${n} benefit${n > 1 ? "s" : ""} · use arrows to navigate`,
+    useCasesLabel:    "Concrete use cases",
+    useCasesTitle:    "How our clients use it",
+    useCasesDesc:     "Real scenarios, identifiable problems, measurable results.",
+    colLabels:        ["Challenge", "Solution", "Result"],
+    featuresLabel:    "Features",
+    featuresTitle:    "What's included in the solution",
+    featuresDesc:     "Every feature addresses a concrete problem in your day-to-day operations.",
+    featuresBtn:      "Discuss my project",
+    gainsLabel:       "Performance gains",
+    gainsTitle:       "Before / after impact in numbers",
+    ctaLabel:         "Next step",
+    startBtn:         "Start now",
+    allSolBtn:        "All solutions",
+    relatedLabel:     "Related solutions",
+  },
+};
+
 function ImgFrame({ src, size = 48, accent }: { src?: string; size?: number; accent: string }) {
   const s = `${size}px`;
   return (
@@ -41,6 +84,9 @@ function ImgFrame({ src, size = 48, accent }: { src?: string; size?: number; acc
 }
 
 export default function SolutionPage(p: SolutionPageProps) {
+  const t = p.locale === "en" ? T.en : T.fr;
+  const colColors = ["#ef4444", p.accentFrom, "#10b981"];
+
   return (
     <div className="bg-white text-slate-900">
 
@@ -54,6 +100,7 @@ export default function SolutionPage(p: SolutionPageProps) {
         gains={p.gains}
         benefits={p.benefits}
         problem={p.problem}
+        locale={p.locale}
       />
 
       {/* ══ PROBLEM ══ */}
@@ -61,7 +108,7 @@ export default function SolutionPage(p: SolutionPageProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
-              <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-red-500">Le problème</div>
+              <div className="mb-4 text-[11px] font-semibold uppercase tracking-widest text-red-500">{t.problemLabel}</div>
               <h2 className="mb-5 text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-[44px]">
                 {p.problem.title}
               </h2>
@@ -84,13 +131,13 @@ export default function SolutionPage(p: SolutionPageProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mb-14 flex items-end justify-between gap-6">
             <div>
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Les bénéfices</div>
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">{t.benefitsLabel}</div>
               <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[44px]">
-                Ce que vous gagnez concrètement
+                {t.benefitsTitle}
               </h2>
             </div>
             <p className="hidden lg:block max-w-xs text-[14px] text-slate-400">
-              {p.benefits.length} bénéfices · utilisez les flèches pour naviguer
+              {t.benefitsHint(p.benefits.length)}
             </p>
           </div>
           <BenefitsSlider benefits={p.benefits} accent={p.accentFrom} />
@@ -101,13 +148,11 @@ export default function SolutionPage(p: SolutionPageProps) {
       <section id="use-cases" className="py-24 bg-slate-50">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mb-14">
-            <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Cas d&apos;usage concrets</div>
+            <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">{t.useCasesLabel}</div>
             <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[44px]">
-              Comment nos clients l&apos;utilisent
+              {t.useCasesTitle}
             </h2>
-            <p className="mt-4 max-w-xl text-lg text-slate-500">
-              Des scénarios réels, des problèmes identifiables, des résultats mesurables.
-            </p>
+            <p className="mt-4 max-w-xl text-lg text-slate-500">{t.useCasesDesc}</p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {p.useCases.map((uc) => (
@@ -117,14 +162,12 @@ export default function SolutionPage(p: SolutionPageProps) {
                   <span className="font-bold text-[14px] text-slate-800">{uc.scenario}</span>
                 </div>
                 <div className="grid grid-cols-3 divide-x divide-slate-100">
-                  {[
-                    { label: "Problème", text: uc.challenge, color: "#ef4444" },
-                    { label: "Solution", text: uc.solution,  color: p.accentFrom },
-                    { label: "Résultat", text: uc.result,    color: "#10b981" },
-                  ].map((col) => (
-                    <div key={col.label} className="p-5">
-                      <div className="mb-2 text-[10px] font-black uppercase tracking-widest" style={{ color: col.color }}>{col.label}</div>
-                      <p className="text-[13px] leading-relaxed text-slate-600">{col.text}</p>
+                  {[uc.challenge, uc.solution, uc.result].map((text, idx) => (
+                    <div key={idx} className="p-5">
+                      <div className="mb-2 text-[10px] font-black uppercase tracking-widest" style={{ color: colColors[idx] }}>
+                        {t.colLabels[idx]}
+                      </div>
+                      <p className="text-[13px] leading-relaxed text-slate-600">{text}</p>
                     </div>
                   ))}
                 </div>
@@ -139,15 +182,13 @@ export default function SolutionPage(p: SolutionPageProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid items-start gap-16 lg:grid-cols-[1fr_1fr]">
             <div>
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Fonctionnalités</div>
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">{t.featuresLabel}</div>
               <h2 className="mb-5 text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-[44px]">
-                Ce qui est inclus dans la solution
+                {t.featuresTitle}
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-slate-500">
-                Chaque fonctionnalité répond à un problème concret dans votre quotidien opérationnel.
-              </p>
+              <p className="mb-8 text-lg leading-relaxed text-slate-500">{t.featuresDesc}</p>
               <SquareButton href="/contact" accent={p.accentFrom}>
-                Discuter de mon projet
+                {t.featuresBtn}
               </SquareButton>
             </div>
             <div className="divide-y divide-slate-100 border border-slate-100 overflow-hidden">
@@ -169,9 +210,9 @@ export default function SolutionPage(p: SolutionPageProps) {
       <section className="py-24 bg-slate-50">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mb-14">
-            <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">Gains de performance</div>
+            <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">{t.gainsLabel}</div>
             <h2 className="text-4xl font-black tracking-tight text-slate-900 lg:text-[44px]">
-              L&apos;impact avant / après en chiffres
+              {t.gainsTitle}
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -195,16 +236,16 @@ export default function SolutionPage(p: SolutionPageProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
             <div>
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-white/40">Prochaine étape</div>
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-white/40">{t.ctaLabel}</div>
               <h2 className="mb-3 text-4xl font-black text-white lg:text-[44px]">{p.cta.title}</h2>
               <p className="text-lg text-white/50">{p.cta.subtitle}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <SquareButton href="/contact" accent={p.accentFrom}>
-                Démarrer maintenant
+                {t.startBtn}
               </SquareButton>
               <SquareButton href="/services" variant="dark" accent="#334155">
-                Toutes les solutions
+                {t.allSolBtn}
               </SquareButton>
             </div>
           </div>
@@ -217,7 +258,7 @@ export default function SolutionPage(p: SolutionPageProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="flex flex-wrap items-center gap-4">
               <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mr-2">
-                Solutions complémentaires
+                {t.relatedLabel}
               </span>
               {p.relatedSolutions.map((r) => (
                 <Link key={r.title} href={r.href}

@@ -3,10 +3,10 @@ import type { Locale } from "@/routing";
 
 const content = {
   fr: {
-    meta: { title: "Agents IA | Kadrek", description: "Des agents IA qui travaillent pour vous 24h/24 : support client, triage email, rapports automatiques, détection d'anomalies." },
-    eyebrow: "Agents IA",
-    title: "Une IA qui travaille pendant que vous dormez",
-    subtitle: "Les agents IA gèrent vos tâches répétitives en temps réel — réponses clients, triage d'emails, génération de rapports, détection d'anomalies. Votre équipe se concentre sur ce qui crée vraiment de la valeur.",
+    meta: { title: "Solutions IA | Kadrek", description: "Des solutions IA qui amplifient vos équipes : support client, triage email, rapports automatiques, détection d'anomalies." },
+    eyebrow: "Solutions IA",
+    title: "L'intelligence artificielle qui amplifie chaque collaborateur",
+    subtitle: "Nos solutions IA prennent en charge les tâches répétitives — réponses clients, triage d'emails, génération de rapports, détection d'anomalies — pour que vos équipes se concentrent sur ce qui exige leur expertise.",
     problem: {
       title: "Vos équipes passent 40% de leur temps sur des tâches que l'IA peut faire",
       intro: "Support client chronophage, emails non triés, rapports manuels répétitifs, anomalies détectées trop tard — chaque heure perdue sur ces tâches est une heure non investie sur la croissance.",
@@ -20,12 +20,12 @@ const content = {
       ],
     },
     benefits: [
-      { icon: "⚡", title: "Disponibilité 24h/24, 7j/7", desc: "Vos agents IA ne dorment pas. Ils répondent aux clients, traitent les données et surveillent vos systèmes sans interruption." },
-      { icon: "🎯", title: "80% des requêtes résolues auto", desc: "Quatre requêtes sur cinq sont traitées sans intervention humaine. Votre équipe ne gère que les cas complexes." },
+      { icon: "⚡", title: "Disponibilité en continu", desc: "Nos solutions IA traitent les demandes, surveillent vos systèmes et analysent vos données sans interruption, quelle que soit l'heure." },
+      { icon: "🎯", title: "80% des requêtes traitées automatiquement", desc: "Quatre requêtes sur cinq sont résolues sans intervention. Vos collaborateurs concentrent leur attention sur les cas qui exigent leur jugement." },
       { icon: "📉", title: "Réduction des coûts de support", desc: "Moins de personnel dédié aux tâches répétitives. Les agents IA gèrent le volume sans que les coûts n'explosent." },
       { icon: "🧠", title: "Apprentissage continu", desc: "Plus l'agent traite de cas, plus il devient précis. Le système s'améliore automatiquement avec l'usage." },
       { icon: "🔒", title: "Détection d'anomalies proactive", desc: "L'IA surveille vos données en continu et vous alerte avant qu'un problème ne devienne une crise." },
-      { icon: "📊", title: "Rapports sans effort", desc: "Chaque rapport est généré, formaté et distribué automatiquement. Zéro intervention manuelle requise." },
+      { icon: "📊", title: "Rapports automatiques", desc: "Chaque rapport est généré, formaté et distribué automatiquement. Aucune ressaisie manuelle." },
     ],
     useCases: [
       { icon: "💬", scenario: "E-commerce — Support client automatisé", challenge: "4 agents support pour 800 tickets/jour. Temps de réponse moyen : 6 heures. Satisfaction client en chute.", solution: "Agent IA connecté à la base de connaissance et au système de commandes. Répond aux questions de suivi, retours et livraisons.", result: "80% des tickets résolus en < 30 secondes. Agents libérés pour les cas complexes. NPS +24 points." },
@@ -59,10 +59,10 @@ const content = {
     ],
   },
   en: {
-    meta: { title: "AI Agents | Kadrek", description: "AI agents that work for you 24/7: customer support, email triage, automatic reports, anomaly detection." },
-    eyebrow: "AI Agents",
-    title: "An AI that works while you sleep",
-    subtitle: "AI agents handle your repetitive tasks in real time — customer replies, email triage, report generation, anomaly detection. Your team focuses on what truly creates value.",
+    meta: { title: "AI Solutions | Kadrek", description: "AI solutions that amplify your teams: customer support, email triage, automatic reports, anomaly detection." },
+    eyebrow: "AI Solutions",
+    title: "Artificial intelligence that amplifies every team member",
+    subtitle: "Our AI solutions handle repetitive tasks — customer replies, email triage, report generation, anomaly detection — so your teams can focus on work that demands their expertise.",
     problem: {
       title: "Your teams spend 40% of their time on tasks AI can handle",
       intro: "Time-consuming customer support, unsorted emails, repetitive manual reports, anomalies detected too late — every hour lost on these tasks is an hour not invested in growth.",
@@ -76,12 +76,12 @@ const content = {
       ],
     },
     benefits: [
-      { icon: "⚡", title: "Available 24/7", desc: "Your AI agents never sleep. They reply to customers, process data and monitor your systems without interruption." },
-      { icon: "🎯", title: "80% of requests resolved automatically", desc: "Four out of five requests are handled without human intervention. Your team only deals with complex cases." },
+      { icon: "⚡", title: "Continuous availability", desc: "Our AI solutions process requests, monitor your systems and analyse your data without interruption, at any hour." },
+      { icon: "🎯", title: "80% of requests handled automatically", desc: "Four out of five requests are resolved without intervention. Your teams focus their attention on cases that require their judgement." },
       { icon: "📉", title: "Lower support costs", desc: "Less staff dedicated to repetitive tasks. AI agents absorb volume without costs exploding." },
       { icon: "🧠", title: "Continuous learning", desc: "The more cases the agent handles, the more accurate it becomes. The system improves automatically with use." },
       { icon: "🔒", title: "Proactive anomaly detection", desc: "AI monitors your data continuously and alerts you before a problem becomes a crisis." },
-      { icon: "📊", title: "Reports with zero effort", desc: "Every report is generated, formatted and distributed automatically. Zero manual intervention required." },
+      { icon: "📊", title: "Automatic reports", desc: "Every report is generated, formatted and distributed automatically. No manual re-entry required." },
     ],
     useCases: [
       { icon: "💬", scenario: "E-commerce — Automated customer support", challenge: "4 support agents for 800 tickets/day. Average response time: 6 hours. Customer satisfaction falling.", solution: "AI agent connected to the knowledge base and order system. Answers tracking, returns and delivery questions.", result: "80% of tickets resolved in < 30 seconds. Agents freed for complex cases. NPS +24 points." },
@@ -140,6 +140,7 @@ export default async function AgentsIAPage({ params }: { params: Promise<{ local
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }

@@ -53,7 +53,7 @@ const content = {
     ],
     cta: { title: "Donnez à vos équipes le superpouvoir de l'IA", subtitle: "Un programme de formation complet, adapté à vos rôles, vos outils et vos objectifs — avec des résultats mesurables dès la première semaine." },
     relatedSolutions: [
-      { icon: "🤖", title: "Agents IA", href: "/solutions/agents-ia" },
+      { icon: "🤖", title: "Solutions IA", href: "/solutions/agents-ia" },
       { icon: "⚙️", title: "Automatisation", href: "/solutions/automatisation" },
       { icon: "📊", title: "Data & Analytics", href: "/solutions/data-analytics" },
     ],
@@ -109,7 +109,7 @@ const content = {
     ],
     cta: { title: "Give your teams the superpower of AI", subtitle: "A complete training programme, tailored to your roles, tools and goals — with measurable results from the first week." },
     relatedSolutions: [
-      { icon: "🤖", title: "AI Agents", href: "/solutions/agents-ia" },
+      { icon: "🤖", title: "AI Solutions", href: "/solutions/agents-ia" },
       { icon: "⚙️", title: "Automation", href: "/solutions/automatisation" },
       { icon: "📊", title: "Data & Analytics", href: "/solutions/data-analytics" },
     ],
@@ -140,6 +140,7 @@ export default async function FormationIAPage({ params }: { params: Promise<{ lo
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }

@@ -140,6 +140,7 @@ export default async function PresenceSeoPage({ params }: { params: Promise<{ lo
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }

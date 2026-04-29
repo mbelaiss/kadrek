@@ -140,6 +140,7 @@ export default async function OptimisationDigitalePage({ params }: { params: Pro
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }

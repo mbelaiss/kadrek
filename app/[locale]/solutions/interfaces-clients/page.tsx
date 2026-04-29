@@ -140,6 +140,7 @@ export default async function InterfacesClientsPage({ params }: { params: Promis
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }

@@ -5,8 +5,8 @@ const content = {
   fr: {
     meta: { title: "Automatisation des Processus | Kadrek", description: "Automatisez la facturation, les commandes, l'onboarding et les rapports. Économisez jusqu'à 40% de vos coûts opérationnels." },
     eyebrow: "Automatisation",
-    title: "Arrêtez de payer pour ce que les machines font mieux",
-    subtitle: "Facturation, commandes, onboarding, relances, conformité — chaque tâche manuelle est un coût caché. On automatise vos processus critiques pour que votre équipe se concentre sur ce qui génère vraiment de la croissance.",
+    title: "Libérez vos équipes des contraintes opérationnelles",
+    subtitle: "Facturation, commandes, onboarding, relances, conformité — chaque heure consacrée à ces flux est une heure prise sur des missions à plus forte valeur. On structure vos processus pour que vos équipes concentrent leur énergie là où elle compte.",
     problem: {
       title: "Les tâches manuelles coûtent plus cher qu'elles ne semblent",
       intro: "Pour une PME de 20 personnes, les tâches répétitives représentent en moyenne 1,7 équivalent temps plein par an — soit 50 000 à 80 000 € de masse salariale consacrée à des activités que l'automatisation résout à une fraction du coût.",
@@ -25,7 +25,7 @@ const content = {
       { icon: "⚡", title: "Vitesse d'exécution multipliée", desc: "Un processus qui prenait 45 minutes à la main prend 12 secondes automatisé. Vos délais clients s'améliorent drastiquement." },
       { icon: "📊", title: "Traçabilité totale", desc: "Chaque action est horodatée, documentée et accessible. Audits, litiges et réclamations résolus en quelques clics." },
       { icon: "🌱", title: "Scalabilité sans embauche", desc: "Doublez votre volume sans doubler vos effectifs. Les systèmes automatisés absorbent la croissance naturellement." },
-      { icon: "😊", title: "Équipes plus motivées", desc: "Personne n'aime passer des heures à copier des données. Supprimez le travail ingrat et regardez l'engagement grimper." },
+      { icon: "😊", title: "Équipes davantage engagées", desc: "Vos collaborateurs concentrent leur énergie sur les missions à haute valeur. Les processus répétitifs sont pris en charge par les systèmes." },
     ],
     useCases: [
       { icon: "🧾", scenario: "Facturation automatique bout-en-bout", challenge: "Comptable passe 3h/jour à créer des factures, les envoyer et suivre les paiements. Retards fréquents, oublis de relance.", solution: "Workflow automatisé : facture créée à la validation commande, envoyée au client, relancée à J+7 et J+14 si impayée.", result: "3h économisées/jour. Délai de paiement moyen réduit de 18 à 9 jours. Cash-flow amélioré." },
@@ -53,7 +53,7 @@ const content = {
     ],
     cta: { title: "Automatisez votre premier processus cette semaine", subtitle: "On identifie le processus qui vous coûte le plus, on le modélise et on livre une première automatisation en 10 jours." },
     relatedSolutions: [
-      { icon: "🤖", title: "Agents IA", href: "/solutions/agents-ia" },
+      { icon: "🤖", title: "Solutions IA", href: "/solutions/agents-ia" },
       { icon: "📊", title: "Data & Analytics", href: "/solutions/data-analytics" },
       { icon: "💻", title: "Interfaces clients", href: "/solutions/interfaces-clients" },
     ],
@@ -61,8 +61,8 @@ const content = {
   en: {
     meta: { title: "Process Automation | Kadrek", description: "Automate invoicing, orders, onboarding and reports. Save up to 40% of your operational costs." },
     eyebrow: "Automation",
-    title: "Stop paying for what machines do better",
-    subtitle: "Invoicing, orders, onboarding, follow-ups, compliance — every manual task is a hidden cost. We automate your critical processes so your team can focus on what actually drives growth.",
+    title: "Free your teams from operational constraints",
+    subtitle: "Invoicing, orders, onboarding, follow-ups, compliance — every hour spent on these flows is an hour taken from higher-value work. We structure your processes so your teams focus their energy where it matters.",
     problem: {
       title: "Manual tasks cost more than they appear to",
       intro: "For a 20-person SME, repetitive tasks represent an average of 1.7 full-time equivalents per year — that's €50,000–€80,000 in payroll spent on activities automation can solve at a fraction of the cost.",
@@ -81,7 +81,7 @@ const content = {
       { icon: "⚡", title: "Execution speed multiplied", desc: "A process that took 45 minutes by hand takes 12 seconds automated. Your customer lead times improve dramatically." },
       { icon: "📊", title: "Complete traceability", desc: "Every action is timestamped, documented and accessible. Audits, disputes and complaints resolved in a few clicks." },
       { icon: "🌱", title: "Scalability without hiring", desc: "Double your volume without doubling headcount. Automated systems absorb growth naturally." },
-      { icon: "😊", title: "More motivated teams", desc: "Nobody enjoys copying data for hours. Remove the drudge work and watch engagement rise." },
+      { icon: "😊", title: "More engaged teams", desc: "Your teams focus their energy on high-value work. Repetitive processes are handled by the systems." },
     ],
     useCases: [
       { icon: "🧾", scenario: "End-to-end automated invoicing", challenge: "Accountant spends 3 hours/day creating invoices, sending them and chasing payments. Frequent delays, forgotten reminders.", solution: "Automated workflow: invoice created on order confirmation, sent to customer, chased at day 7 and 14 if unpaid.", result: "3 hours saved/day. Average payment time cut from 18 to 9 days. Improved cash flow." },
@@ -109,7 +109,7 @@ const content = {
     ],
     cta: { title: "Automate your first process this week", subtitle: "We identify the process costing you the most, model it, and deliver a first automation in 10 days." },
     relatedSolutions: [
-      { icon: "🤖", title: "AI Agents", href: "/solutions/agents-ia" },
+      { icon: "🤖", title: "AI Solutions", href: "/solutions/agents-ia" },
       { icon: "📊", title: "Data & Analytics", href: "/solutions/data-analytics" },
       { icon: "💻", title: "Client interfaces", href: "/solutions/interfaces-clients" },
     ],
@@ -140,6 +140,7 @@ export default async function AutomatisationPage({ params }: { params: Promise<{
       gains={c.gains}
       cta={c.cta}
       relatedSolutions={c.relatedSolutions}
+      locale={locale}
     />
   );
 }
