@@ -126,7 +126,7 @@ export default function Header() {
                         <span className="block text-[13px] font-black text-slate-800">{t("diag_title")}</span>
                         <span className="text-[12px] text-slate-500">{t("diag_desc")}</span>
                       </div>
-                      <Link href="/contact" onClick={() => setOpen(null)}
+                      <Link href="/diagnostic" onClick={() => setOpen(null)}
                         className="inline-flex items-stretch overflow-hidden transition hover:opacity-90">
                         <span className="flex items-center bg-blue-600 px-4 py-2 text-[12px] font-black text-white">{t("diag_cta")}</span>
                         <span className="flex w-8 items-center justify-center bg-blue-700">

@@ -5,6 +5,7 @@ const base = "https://kadrek.com";
 const routes = [
   "",
   "/about",
+  "/diagnostic",
   "/contact",
   "/services",
   "/digitalisation",
