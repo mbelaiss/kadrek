@@ -106,8 +106,12 @@ export default function Footer() {
           <p className="text-sm text-slate-400">
             © {new Date().getFullYear()} Kadrek. {t("rights")}
           </p>
-          <div className="flex gap-6 text-sm text-slate-400">
+          <div className="flex flex-wrap gap-4 text-sm text-slate-400">
             <span>{t("location")}</span>
+            <span>·</span>
+            <Link href="/mentions-legales" className="hover:text-blue-600 transition-colors">{t("legal")}</Link>
+            <span>·</span>
+            <Link href="/confidentialite" className="hover:text-blue-600 transition-colors">{t("privacy")}</Link>
             <span>·</span>
             <Link href="/contact" className="hover:text-blue-600 transition-colors">{t("contact_link")}</Link>
           </div>
