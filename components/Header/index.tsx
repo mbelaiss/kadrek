@@ -155,7 +155,7 @@ export default function Header() {
               <span className="text-slate-300">/</span>
               <a href={hrefEn} className={`transition hover:text-blue-600 ${locale === "en" ? "text-blue-600" : "text-slate-400"}`}>EN</a>
             </div>
-            <Link href="/contact"
+            <Link href="/diagnostic"
               className="group inline-flex items-stretch overflow-hidden transition-all hover:-translate-y-px hover:shadow-md">
               <span className="flex items-center bg-blue-600 px-5 py-2.5 text-[13px] font-black text-white">
                 {t("start")}
@@ -207,7 +207,7 @@ export default function Header() {
             </div>
           </div>
           <div className="border-t border-slate-100 p-5">
-            <Link href="/contact" onClick={() => setMobile(false)}
+            <Link href="/diagnostic" onClick={() => setMobile(false)}
               className="flex w-full items-stretch overflow-hidden">
               <span className="flex flex-1 items-center justify-center bg-blue-600 py-4 text-sm font-black text-white">
                 {t("start")}
