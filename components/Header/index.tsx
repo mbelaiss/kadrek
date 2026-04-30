@@ -61,7 +61,7 @@ export default function Header() {
   const navLinks = [
     { name: t("digitalisation"), href: "/digitalisation" },
     { name: t("resultats"),      href: "/resultats" },
-    { name: t("about"),          href: "/#about" },
+    { name: t("about"),          href: "/about" },
     { name: t("contact"),        href: "/contact" },
   ];
 
