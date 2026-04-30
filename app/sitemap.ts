@@ -4,10 +4,13 @@ const base = "https://kadrek.com";
 
 const routes = [
   "",
+  "/about",
   "/contact",
   "/services",
   "/digitalisation",
   "/resultats",
+  "/mentions-legales",
+  "/confidentialite",
   "/solutions/data-analytics",
   "/solutions/agents-ia",
   "/solutions/automatisation",

@@ -83,14 +83,15 @@ const content = {
     },
     about: {
       badge: "À propos de Kadrek",
-      title: "Un cabinet sans frontières, des experts partout dans le monde",
-      p1: "Kadrek est un cabinet de conseil en transformation digitale dont la politique repose sur un principe simple : les meilleures compétences ne se trouvent pas toujours au même endroit. C'est pourquoi nos experts opèrent depuis plusieurs pays, sur plusieurs fuseaux horaires, pour servir nos clients sans contrainte géographique.",
-      p2: "Cette organisation distribuée n'est pas une contrainte — c'est un avantage concurrentiel. Elle nous permet de recruter les meilleurs profils mondiaux en data, IA, automatisation et développement.",
+      title: "Belgique, Maroc — et l'Afrique en ligne de mire.",
+      p1: "Kadrek est un cabinet de conseil en transformation digitale basé entre la Belgique et le Maroc. Nous accompagnons les PME dans leur développement en leur construisant les outils dont elles ont besoin — pas des solutions génériques, mais des systèmes pensés pour leur réalité.",
+      p2: "Notre priorité immédiate : digitaliser les PME marocaines. Notre ambition à long terme : contribuer à faire de l'Afrique une puissance numérique mondiale.",
+      cta: "Découvrir notre histoire",
       tiles: [
-        { label: "Agilité globale", accent: "#2563eb", desc: "Présents sur plusieurs fuseaux horaires, nous nous adaptons à votre rythme et vos urgences — sans délai." },
-        { label: "Expertise mondiale", accent: "#7c3aed", desc: "Nous recrutons les meilleurs profils indépendamment de leur localisation. Votre projet bénéficie du meilleur talent disponible." },
-        { label: "Siège à Casablanca", accent: "#0891b2", desc: "Notre base opérationnelle est au Maroc, carrefour stratégique entre l'Europe, l'Afrique et le monde arabe." },
-        { label: "Impact local, vision globale", accent: "#2563eb", desc: "Nous comprenons les marchés locaux et appliquons des standards internationaux. Le meilleur des deux mondes." },
+        { label: "Sur-mesure uniquement", accent: "#2563eb", desc: "Chaque entreprise est unique. Nous construisons ce dont elle a besoin — pas ce qu'un catalogue prédéfinit." },
+        { label: "Belgique & Maroc", accent: "#7c3aed", desc: "Des projets concrets sur deux marchés. Des standards européens appliqués à la réalité africaine." },
+        { label: "PME en priorité", accent: "#0891b2", desc: "Nous nous concentrons sur les entreprises de 5 à 200 personnes qui ont tout à gagner d'une bonne digitalisation." },
+        { label: "Vision Afrique", accent: "#2563eb", desc: "Le Maroc est notre point de départ. L'Afrique est notre horizon. La digitalisation en est le chemin." },
       ],
     },
     cta: {
@@ -171,14 +172,15 @@ const content = {
     },
     about: {
       badge: "About Kadrek",
-      title: "A borderless firm, experts everywhere in the world",
-      p1: "Kadrek is a digital transformation consultancy built on a simple principle: the best talent isn't always in the same place. That's why our experts operate from multiple countries, across time zones, to serve clients without geographic constraints.",
-      p2: "This distributed model isn't a limitation — it's a competitive advantage. It lets us recruit the world's best profiles in data, AI, automation and development, and put them to work for your growth.",
+      title: "Belgium, Morocco — and Africa in our sights.",
+      p1: "Kadrek is a digital transformation consultancy based between Belgium and Morocco. We help SMEs grow by building the tools they actually need — not generic solutions, but systems designed for their specific reality.",
+      p2: "Our immediate priority: digitalise Moroccan SMEs. Our long-term ambition: contribute to making Africa a global digital powerhouse.",
+      cta: "Discover our story",
       tiles: [
-        { label: "Global agility", accent: "#2563eb", desc: "Present across multiple time zones, we adapt to your pace and urgencies — without delay." },
-        { label: "World-class expertise", accent: "#7c3aed", desc: "We recruit the best profiles regardless of location. Your project gets the best available talent." },
-        { label: "Headquartered in Casablanca", accent: "#0891b2", desc: "Our operational base is in Morocco, a strategic hub between Europe, Africa and the Arab world." },
-        { label: "Local impact, global vision", accent: "#2563eb", desc: "We understand local markets and apply international standards. The best of both worlds." },
+        { label: "Custom only", accent: "#2563eb", desc: "Every company is unique. We build what it needs — not what a pre-defined catalogue offers." },
+        { label: "Belgium & Morocco", accent: "#7c3aed", desc: "Concrete projects on two markets. European standards applied to African reality." },
+        { label: "SMEs first", accent: "#0891b2", desc: "We focus on businesses with 5 to 200 people — those who stand to gain the most from the right digitalisation." },
+        { label: "Africa vision", accent: "#2563eb", desc: "Morocco is our starting point. Africa is our horizon. Digitalisation is the path." },
       ],
     },
     cta: {
@@ -380,7 +382,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </div>
               <h2 className="mb-6 text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-[50px]">{c.about.title}</h2>
               <p className="mb-5 text-lg leading-relaxed text-slate-500">{c.about.p1}</p>
-              <p className="text-lg leading-relaxed text-slate-500">{c.about.p2}</p>
+              <p className="mb-8 text-lg leading-relaxed text-slate-500">{c.about.p2}</p>
+              <Link href="/about" className="inline-flex items-center gap-2 text-[14px] font-black uppercase tracking-widest text-blue-600 hover:text-blue-700 transition-colors">
+                {c.about.cta} <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
             <div className="grid gap-px bg-slate-100 border border-slate-100 sm:grid-cols-2">
               {c.about.tiles.map((item) => (

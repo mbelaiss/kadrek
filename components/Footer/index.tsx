@@ -19,6 +19,7 @@ export default function Footer() {
 
   const company = [
     { key: "co_home",    href: "/" },
+    { key: "co_about",   href: "/about" },
     { key: "co_digital", href: "/digitalisation" },
     { key: "co_services",href: "/services" },
     { key: "co_results", href: "/resultats" },

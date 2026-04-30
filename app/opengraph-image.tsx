@@ -147,7 +147,7 @@ export default function OGImage() {
               marginTop: "40px",
             }}
           >
-            {["Data & Analytics", "Agents IA", "Automatisation", "Présence digitale"].map((tag) => (
+            {["Data & Analytics", "Solutions IA", "Automatisation", "Présence digitale"].map((tag) => (
               <div
                 key={tag}
                 style={{
